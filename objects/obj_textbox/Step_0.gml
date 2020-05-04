@@ -1,8 +1,4 @@
-if (isTags)
-	global.tags = text;
+if (!enabled) || (global.downloading) || (cursor.selection != id) exit;
 
-//if (cursor.selection != id) exit;
-if (!enabled) || (global.loading) exit;
-
-//text = string_copy(keyboard_string, 0, 27);
-text = keyboard_string;
+keyboardText	= keyboard_string;
+text					= keyboardText + typebeam;

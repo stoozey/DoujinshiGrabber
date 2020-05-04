@@ -60,7 +60,7 @@
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
+            "enumb": 64,
             "eventtype": 8,
             "m_owner": "3cf37566-0652-41a8-8b09-70e089b362ce"
         },
@@ -161,6 +161,34 @@
             "value": "spr_9slice_button",
             "varName": "spriteNineSlice",
             "varType": 5
+        },
+        {
+            "id": "b4e303f6-74d2-469a-a35c-0a1b6c75d05c",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "True",
+            "varName": "enabled",
+            "varType": 3
+        },
+        {
+            "id": "65099d57-740e-463b-8908-9434f3f5caca",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "\"\"",
+            "varName": "text",
+            "varType": 2
         }
     ],
     "solid": false,

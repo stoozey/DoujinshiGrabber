@@ -43,21 +43,20 @@
             "enumb": 0,
             "eventtype": 2,
             "m_owner": "24db7b5f-4f11-42d4-9fea-b7d52cd7944c"
-        },
-        {
-            "id": "476e0f20-9869-4d00-88dc-158ed83b2592",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 2,
-            "eventtype": 3,
-            "m_owner": "24db7b5f-4f11-42d4-9fea-b7d52cd7944c"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
-    "overriddenProperties": null,
-    "parentObjectId": "00000000-0000-0000-0000-000000000000",
+    "overriddenProperties": [
+        {
+            "id": "c5d2d71a-56c9-456a-8abd-9613d60ced95",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "3cf37566-0652-41a8-8b09-70e089b362ce",
+            "propertyId": "dbbc33e5-0ab5-466c-884d-ef3ebe4dcfd5",
+            "value": "False"
+        }
+    ],
+    "parentObjectId": "3cf37566-0652-41a8-8b09-70e089b362ce",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
@@ -72,48 +71,7 @@
     "physicsShapePoints": null,
     "physicsStartAwake": true,
     "properties": [
-        {
-            "id": "7a127dbe-5fa8-495c-99c1-ceee2df7602c",
-            "modelName": "GMObjectProperty",
-            "mvc": "1.0",
-            "listItems": null,
-            "multiselect": false,
-            "rangeEnabled": false,
-            "rangeMax": 10,
-            "rangeMin": 0,
-            "resourceFilter": 1023,
-            "value": "True",
-            "varName": "enabled",
-            "varType": 3
-        },
-        {
-            "id": "f1a48b40-7ccf-4a7d-a887-4a2443d2c39f",
-            "modelName": "GMObjectProperty",
-            "mvc": "1.0",
-            "listItems": null,
-            "multiselect": false,
-            "rangeEnabled": false,
-            "rangeMax": 10,
-            "rangeMin": 0,
-            "resourceFilter": 1023,
-            "value": "0",
-            "varName": "showDir",
-            "varType": 3
-        },
-        {
-            "id": "c05ab2c1-c2f8-457e-95c4-323bb8491212",
-            "modelName": "GMObjectProperty",
-            "mvc": "1.0",
-            "listItems": null,
-            "multiselect": false,
-            "rangeEnabled": false,
-            "rangeMax": 10,
-            "rangeMin": 0,
-            "resourceFilter": 1023,
-            "value": "0",
-            "varName": "isTags",
-            "varType": 3
-        }
+        
     ],
     "solid": false,
     "spriteId": "dfd27151-9790-4195-bf7e-b70b88fa9be4",

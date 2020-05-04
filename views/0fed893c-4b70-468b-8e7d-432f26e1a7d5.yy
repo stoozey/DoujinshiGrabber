@@ -8,7 +8,9 @@
         "99d999d0-fab8-49de-9ba6-68677f35a7ba",
         "32f727f4-c023-4d65-a542-6beb8e5e2189",
         "5bee1111-d49d-4b21-8c85-6e9693b591bc",
-        "303e2332-529f-42f9-8de2-e747567a297f"
+        "303e2332-529f-42f9-8de2-e747567a297f",
+        "47210361-b676-42e0-a16c-d6af2a0a23e2",
+        "c39f7145-dc64-4f0f-b036-8822442dfbed"
     ],
     "filterType": "GMScript",
     "folderName": "JSON",

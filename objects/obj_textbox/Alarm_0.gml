@@ -1,4 +1,9 @@
 alarm[0] = room_speed;
-if (!enabled) exit;
 
-typebeam = (typebeam == "") ? "|" : "";
+if (!enabled)
+{
+	typebeam = "";
+	exit;
+}
+
+typebeam	= (typebeam == "") ? "|" : "";

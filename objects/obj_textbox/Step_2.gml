@@ -1,1 +1,0 @@
-if (showDir) text = DIR_SAVE;
