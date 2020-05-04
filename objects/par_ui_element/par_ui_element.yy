@@ -107,6 +107,20 @@
             "varType": 3
         },
         {
+            "id": "1e896c72-9bec-4e25-abe7-67ae9992bc2b",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "1.1",
+            "varName": "uiAnimScaleFull",
+            "varType": 0
+        },
+        {
             "id": "40bad5ea-c10c-4b73-beca-4004b0ab3c8d",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",

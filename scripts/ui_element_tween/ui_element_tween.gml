@@ -30,7 +30,7 @@ switch (_tweenType)
 	
 	case UI_EVENT.ANIM_PRESS:
 		_start			= [ UI_SCALE_DEFAULT, alpha - 0.1 ];
-		_end			= [ 1.1, 1 ];
+		_end			= [ uiAnimScaleFull, 1 ];
 		_mode		= TWEEN_MODE_BOUNCE;
 		_destroy	= true;
 		_time			= 0.1;

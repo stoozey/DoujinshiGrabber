@@ -4,14 +4,18 @@
 ///@arg height
 ///@arg string
 ///@arg [centered]
+///@arg [x_scale]
+///@arg [y_scale]
 
-var _x, _y, _width, _height, _text, _centred;
+var _x, _y, _width, _height, _text, _centred, _scaleX, _scaleY;
 _x					= argument[0];
 _y					= argument[1];
 _width			= argument[2];
 _height			= argument[3];
 _text				= argument[4];
 _centred		= (argument_count > 5) ? argument[5] : false;
+_scaleX			= (argument_count > 6) ? argument[6] : 1;
+_scaleY			= (argument_count > 7) ? argument[7] : 1;
 
 var  _txtScale;
 _txtScale = [1, 1];
@@ -35,7 +39,7 @@ if (_centred)
 	draw_set_valign(fa_middle);
 }
 
-draw_text_transformed(_x, _y, _text, _txtScale[X], _txtScale[Y], 0);
+draw_text_transformed(_x, _y, _text, _scaleX * _txtScale[X], _scaleY * _txtScale[Y], 0);
 
 if (_centred)
 {

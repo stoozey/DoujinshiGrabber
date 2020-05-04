@@ -6,5 +6,15 @@ if (WINDOW[X] != display_get_gui_width()) || (WINDOW[X] != display_get_gui_width
 	WINDOW[Y] = clamp(WINDOW[Y], WINDOW_H_MIN, display_get_height());
 	window_set_size(WINDOW[X], WINDOW[Y]);
 	
+	with (obj_textbox)
+	{
+		if (tagScaleToWindow)
+		{
+			var _buff;
+			_buff = 92;
+			image_xscale = WINDOW[X] - xstart - _buff;
+		}
+	}
+	
 	display_set_gui_size(WINDOW[X], WINDOW[Y]);
 }

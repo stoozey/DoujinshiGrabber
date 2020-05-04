@@ -49,6 +49,7 @@ COL = array_create(colour.highlight + 1, c_black);
 
 #region	getting config data
 
+#macro CFG_HUE		("colour_hue")
 ////	@2.3 : UNCOMMENT CODE
 ////	defaults
 global.__cfgHue	= 0;
@@ -56,7 +57,7 @@ global.__cfgHue	= 0;
 ////	saved stuff
 //try
 //{
-	global.__cfgHue =  clamp(save_get("colour_hue", 0, null, "number"), 0, 255);
+	global.__cfgHue =  clamp(save_get(CFG_HUE, 0, null, "number"), 0, 255);
 //}
 //catch (e)
 //{
