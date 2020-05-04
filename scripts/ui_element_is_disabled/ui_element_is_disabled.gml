@@ -1,0 +1,1 @@
+return ((!uiBypassCursorStateCheck) && (!cursor.uiCanBePressed));
