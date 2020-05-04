@@ -1,1 +1,3 @@
 uiCanBePressed	= true;
+
+selection	= noone;

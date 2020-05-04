@@ -14,12 +14,12 @@ gml_pragma("global", "__init()");
 #macro mouse_x_gui	(device_mouse_x_to_gui(0))
 #macro mouse_y_gui	(device_mouse_y_to_gui(0))
 
-#macro debug	show_debug_message
+#macro debug show_debug_message
 
 #endregion
 
 #region init code
 
-instance_create_depth(0, 0, 0, cursor);
+
 
 #endregion
