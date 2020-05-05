@@ -807,10 +807,26 @@
             }
         },
         {
+            "Key": "556fdec4-282c-47c9-93d2-dbc8e78cbf86",
+            "Value": {
+                "id": "021232a2-ed0f-43a9-82ab-c4c504486c26",
+                "resourcePath": "objects\\obj_ui_button\\obj_ui_button.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "55b3b0a5-76d7-458f-b6c1-9df86f5a2fc2",
             "Value": {
                 "id": "42b53477-6636-4fdf-b351-a4563b91a9b7",
                 "resourcePath": "scripts\\TweenPause\\TweenPause.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "56127d60-b3c1-4fa3-a108-651bb93b73f9",
+            "Value": {
+                "id": "a999bbb9-cbf6-4be0-a18c-57bad1d96003",
+                "resourcePath": "scripts\\scr_null\\scr_null.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -2515,7 +2531,8 @@
         "6bb1caa5-e007-4f66-acf2-28a6369d2b9f",
         "a876528f-04b9-48b7-8e65-450824679969",
         "f10d3e9d-2a75-4079-91fa-cbdfba2f8a26",
-        "73cf997b-d2f5-4f89-8786-6abe69ad4ccd"
+        "73cf997b-d2f5-4f89-8786-6abe69ad4ccd",
+        "56127d60-b3c1-4fa3-a108-651bb93b73f9"
     ],
     "tutorial": ""
 }

@@ -10,9 +10,7 @@ if (WINDOW[X] != display_get_gui_width()) || (WINDOW[X] != display_get_gui_width
 	{
 		if (isTags)
 		{
-			var _buff;
-			_buff = 92;
-			image_xscale = WINDOW[X] - xstart - _buff;
+			image_xscale = WINDOW[X] - xstart - xOffset;
 		}
 	}
 	

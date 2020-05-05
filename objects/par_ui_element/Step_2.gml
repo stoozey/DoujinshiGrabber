@@ -18,6 +18,13 @@ if (isPressing)
 
 if (isEntering)
 {
+	switch (object_index)
+	{
+		default:	window_set_cursor(cr_handpoint); break;
+		
+		case obj_ui_textbox: window_set_cursor(cr_beam); break;
+	}
+	
 	event_user(UI_EVENT.ANIM_ENTER);
 }
 
