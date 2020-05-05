@@ -6,6 +6,7 @@ if (WINDOW[X] != display_get_gui_width()) || (WINDOW[X] != display_get_gui_width
 	WINDOW[Y] = clamp(WINDOW[Y], WINDOW_H_MIN, display_get_height());
 	window_set_size(WINDOW[X], WINDOW[Y]);
 	
+	#region adjust ui elements to new window size
 	with (obj_ui_textbox)
 	{
 		if (isTags)
@@ -13,6 +14,17 @@ if (WINDOW[X] != display_get_gui_width()) || (WINDOW[X] != display_get_gui_width
 			image_xscale = WINDOW[X] - xstart - xOffset;
 		}
 	}
+	
+	with (obj_ui_button)
+	{
+		if (isGoButton)
+		{
+			var _pos;
+			with (anchorOwner) { _pos = x + image_xscale; };
+			x = _pos + 16;
+		}
+	}
+	#endregion
 	
 	display_set_gui_size(WINDOW[X], WINDOW[Y]);
 }

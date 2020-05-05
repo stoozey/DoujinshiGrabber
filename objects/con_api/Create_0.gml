@@ -1,5 +1,5 @@
 #macro API_URL						("https://nhentai.net/api/")
-#macro API_URL_SEARCH		(API_URL + "galleries/search?query=")
+#macro API_URL_SEARCH		(API_URL + "galleries/search?")
 
 global.tags				= global.__cfgTags;
 global.pageNum	= 0;

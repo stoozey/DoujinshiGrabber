@@ -41,6 +41,8 @@ WINDOW = [ window_get_width(), window_get_height() ];
 global.downloading	= false;	//	if we are downloading content
 global.waiting				= false;	//	if we are waiting for scontent to be processed
 
+globalvar BOOK_LIST;
+BOOK_LIST = ds_list_create();
 
 enum colour { darkest, dark, normal, text, highlight };
 globalvar COL;

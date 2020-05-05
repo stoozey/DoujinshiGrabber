@@ -16,20 +16,25 @@ if (async_load[? "id"] == getSearch)
 				_totalPages			= _result[? "num_pages"];
 				_postsPerPage	= _result[? "per_page"];
 				
-				
-				var _totalPosts;
-				_totalPosts	= ds_list_size(_postList);
-				for (var i = 0; i < _totalPosts; ++i)
+				var _totalBooks;
+				_totalBooks = ds_list_size(_postList);
+				for (var i = 0; i < _totalBooks; ++i)
 				{
-					var _thisPost, _postMediaID, _postTitle;
+					var _thisPost, _postBookID, _postMediaID, _postTitle;
 					_thisPost			= _postList[| i];
+					if (_thisPost == null) continue;
+					
+				    _postBookID	= _thisPost[? "id"];
 				    _postMediaID	= _thisPost[? "media_id"];
-					_postTitle			= ds_map_find_value(_thisPost[? "title"], "japanese");
+					_postTitle			= ds_map_find_value(_thisPost[? "title"], "pretty");
+					if (_postTitle == "") _postTitle = ds_map_find_value(_thisPost[? "title"], "english");
+					if (_postTitle == "") _postTitle = ds_map_find_value(_thisPost[? "title"], "japanese");
+					if (_postTitle == "") _postTitle = "Unknown book name";
 					
 					debug(_postTitle);
 				}
-				obj_test.text = _postTitle;
-				debug( "found " + string(_totalPosts) + " posts" );
+
+				debug( "found " + string(_totalBooks) + " posts, out of " + string(_totalPages) + " total." );
 			}
 			else
 				show_message("An error occured when getting the data. Please try again / try another query.");
