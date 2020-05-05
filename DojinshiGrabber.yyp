@@ -79,6 +79,14 @@
             }
         },
         {
+            "Key": "050c834a-7138-4e40-be4f-6de651496ec5",
+            "Value": {
+                "id": "f9882c9a-003b-4d6c-884a-6920a5bcd8ea",
+                "resourcePath": "views\\050c834a-7138-4e40-be4f-6de651496ec5.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "05439b96-323c-4546-b4dd-6f31dcf34a7c",
             "Value": {
                 "id": "5a07ada1-7664-44c6-b27b-8912a12cfbf8",
@@ -1079,6 +1087,14 @@
             }
         },
         {
+            "Key": "7026de30-35cf-4554-922e-7eadb308561d",
+            "Value": {
+                "id": "d54a4b64-405a-4c5c-8268-50e2ade6db69",
+                "resourcePath": "views\\7026de30-35cf-4554-922e-7eadb308561d.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "70cca676-e91d-4f65-9bce-6d3f54b1ad01",
             "Value": {
                 "id": "e1098fb5-9b94-4f8a-92d9-097558955bb2",
@@ -1212,6 +1228,14 @@
                 "id": "13a78239-7862-40e2-b058-ffe849b4a466",
                 "resourcePath": "scripts\\path_speed__\\path_speed__.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "822e4a0c-25a1-49f5-a90c-5a1cc443acd7",
+            "Value": {
+                "id": "b6c92f6b-9407-4d4f-a995-d055d241ffeb",
+                "resourcePath": "fonts\\fnt_japan\\fnt_japan.yy",
+                "resourceType": "GMFont"
             }
         },
         {
@@ -2196,6 +2220,14 @@
                 "id": "2dd3eb43-3803-4366-983d-c6bb5db22d94",
                 "resourcePath": "views\\e9eaff5c-45d9-49cc-8a8f-4fab14916da0.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "ec93b022-c579-49ac-a4f9-435e60de96b2",
+            "Value": {
+                "id": "03965acd-e6c3-456e-812e-2500c8601dee",
+                "resourcePath": "datafiles_yy\\data\\fonts\\KosugiMaru-Regular.ttf.yy",
+                "resourceType": "GMIncludedFile"
             }
         },
         {

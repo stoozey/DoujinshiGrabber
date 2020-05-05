@@ -46,6 +46,17 @@ enum colour { darkest, dark, normal, text, highlight };
 globalvar COL;
 COL = array_create(colour.highlight + 1, c_black);
 
+//	add japanese font
+global.fontJpn = fnt_japan;
+var _fontPath;
+_fontPath = "data\\fonts\\KosugiMaru-Regular.ttf";
+if (file_exists(_fontPath))
+{
+	global.fontJpn = font_add(_fontPath, 14, false, false, 32, 423);
+	debug("loaded japanese font");
+}
+else
+	show_message("Could not find Japanese font, expect \"▯\" symbols in-place of Japanese characters.");
 
 #region	getting config data
 

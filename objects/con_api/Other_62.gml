@@ -24,10 +24,11 @@ if (async_load[? "id"] == getSearch)
 					var _thisPost, _postMediaID, _postTitle;
 					_thisPost			= _postList[| i];
 				    _postMediaID	= _thisPost[? "media_id"];
-					_postTitle			= ds_map_find_value(_thisPost[? "title"], "pretty");
+					_postTitle			= ds_map_find_value(_thisPost[? "title"], "japanese");
 					
 					debug(_postTitle);
 				}
+				obj_test.text = _postTitle;
 				debug( "found " + string(_totalPosts) + " posts" );
 			}
 			else
