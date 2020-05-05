@@ -1,4 +1,6 @@
-hue			= -1;
-hueNew	= global.__cfgHue;
+hue			= global.__cfgHue;
+hueNew	= hue;
 
 hueTween = TweenNull();
+
+colours_generate();

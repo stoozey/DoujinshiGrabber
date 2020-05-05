@@ -1,4 +1,3 @@
-event_inherited();
 
 //if (!isTags) exit;
 

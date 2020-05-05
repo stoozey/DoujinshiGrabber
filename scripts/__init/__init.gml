@@ -49,18 +49,24 @@ COL = array_create(colour.highlight + 1, c_black);
 
 #region	getting config data
 
-#macro CFG_HUE		("colour_hue")
+#macro CFG_HUE			("colour_hue")
+#macro CFG_TAGS		("tag_last")
 ////	@2.3 : UNCOMMENT CODE
 ////	defaults
-global.__cfgHue	= 0;
+
 
 ////	saved stuff
 //try
 //{
 	global.__cfgHue =  clamp(save_get(CFG_HUE, 0, null, "number"), 0, 255);
+	global.__cfgTags =  save_get(CFG_TAGS, "", null, "string");
 //}
 //catch (e)
 //{
+	
+//	global.__cfgHue		= 0;
+//	global.__cfgTags		= "";
+	
 //	if (file_exists(FILE_SAVE))
 //	{
 //		file_copy(FILE_SAVE, "config-corrupted.cfg");

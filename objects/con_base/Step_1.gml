@@ -6,9 +6,9 @@ if (WINDOW[X] != display_get_gui_width()) || (WINDOW[X] != display_get_gui_width
 	WINDOW[Y] = clamp(WINDOW[Y], WINDOW_H_MIN, display_get_height());
 	window_set_size(WINDOW[X], WINDOW[Y]);
 	
-	with (obj_textbox)
+	with (obJ_ui_textbox)
 	{
-		if (tagScaleToWindow)
+		if (isTags)
 		{
 			var _buff;
 			_buff = 92;

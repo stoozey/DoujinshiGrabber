@@ -1,0 +1,1 @@
+global.tags = global.__cfgTags;

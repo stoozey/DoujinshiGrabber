@@ -2,7 +2,7 @@
     "id": "24db7b5f-4f11-42d4-9fea-b7d52cd7944c",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_textbox",
+    "name": "obj_ui_textbox",
     "eventList": [
         {
             "id": "20363c3c-ed1c-41ac-86b2-b55dc6657c3d",
@@ -53,6 +53,16 @@
             "enumb": 10,
             "eventtype": 7,
             "m_owner": "24db7b5f-4f11-42d4-9fea-b7d52cd7944c"
+        },
+        {
+            "id": "2905649a-5eb1-4dce-9547-33122fce6ce2",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 3,
+            "eventtype": 7,
+            "m_owner": "24db7b5f-4f11-42d4-9fea-b7d52cd7944c"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -100,7 +110,7 @@
             "rangeMin": 0,
             "resourceFilter": 1023,
             "value": "0",
-            "varName": "tagScaleToWindow",
+            "varName": "isTags",
             "varType": 3
         }
     ],
