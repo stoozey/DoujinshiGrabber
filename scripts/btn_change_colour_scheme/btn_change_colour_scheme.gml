@@ -6,7 +6,7 @@ _yes += "vouch";
 with (con_colours)
 {
 	hueNew += irandom_range(32, 56);
-	if (hueNew > 255)
+	while (hueNew > 255)
 	{
 		hueNew -= 255;
 		hue = 0;
