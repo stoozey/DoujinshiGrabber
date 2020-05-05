@@ -8,10 +8,27 @@ if (async_load[? "id"] == getSearch)
 			global.downloading = false;
 			
 			var _result;
-			_result = async_load[? "result"];
+			_result = json_decode(async_load[? "result"]);
 			if (_result != null)
 			{
-				debug( string(_result) );
+				var _postList, _totalPages, _postsPerPage;
+				_postList				= _result[? "result"];
+				_totalPages			= _result[? "num_pages"];
+				_postsPerPage	= _result[? "per_page"];
+				
+				
+				var _totalPosts;
+				_totalPosts	= ds_list_size(_postList);
+				for (var i = 0; i < _totalPosts; ++i)
+				{
+					var _thisPost, _postMediaID, _postTitle;
+					_thisPost			= _postList[| i];
+				    _postMediaID	= _thisPost[? "media_id"];
+					_postTitle			= ds_map_find_value(_thisPost[? "title"], "pretty");
+					
+					debug(_postTitle);
+				}
+				debug( "found " + string(_totalPosts) + " posts" );
 			}
 			else
 				show_message("An error occured when getting the data. Please try again / try another query.");
