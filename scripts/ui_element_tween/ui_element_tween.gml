@@ -55,7 +55,7 @@ if (uiUseAnimsScale) && (/*(scale != _start[_SCALE]) &&*/ (scale != _end[_SCALE]
 		TweenAddCallbackUser(uiAnimScaleTween, TWEEN_EV_FINISH, id, UI_EVENT.ANIM_NULL);
 	}
 		
-		debug("ran scale tween, mode: " + string(_tweenType));
+		//debug("ran scale tween, mode: " + string(_tweenType));
 }
 
 if (uiUseAnimsAlpha) && (/*(alpha != _start[_ALPHA]) && */(alpha != _end[_ALPHA]))
@@ -74,5 +74,5 @@ if (uiUseAnimsAlpha) && (/*(alpha != _start[_ALPHA]) && */(alpha != _end[_ALPHA]
 		TweenAddCallbackUser(uiAnimAlphaTween, TWEEN_EV_FINISH, id, UI_EVENT.ANIM_NULL);
 	}
 		
-		debug("ran alpha tween, mode: " + string(_tweenType));
+		//debug("ran alpha tween, mode: " + string(_tweenType));
 }

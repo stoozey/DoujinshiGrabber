@@ -887,6 +887,14 @@
             }
         },
         {
+            "Key": "5b2b130c-10f6-4b1f-8b2e-9b0561196480",
+            "Value": {
+                "id": "423afaa4-70f2-451c-b5b0-109299f5e4ff",
+                "resourcePath": "views\\5b2b130c-10f6-4b1f-8b2e-9b0561196480.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "5bb840cf-86ae-4493-b228-bb1007837a54",
             "Value": {
                 "id": "8ef95039-3795-4dfb-827c-8156357b162c",
@@ -1559,6 +1567,14 @@
             }
         },
         {
+            "Key": "a64599df-7dc5-4c7f-b249-a213fe61ef64",
+            "Value": {
+                "id": "9e064f27-8799-48bf-bd26-4f3dbb669b23",
+                "resourcePath": "views\\a64599df-7dc5-4c7f-b249-a213fe61ef64.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "a74dce71-dccc-4d64-b165-26b5bc52e5b5",
             "Value": {
                 "id": "ee341071-724f-4254-9624-c68eaeb2fcdf",
@@ -1779,6 +1795,14 @@
             "Value": {
                 "id": "93744701-d9db-4be6-b480-7dac8a26a01f",
                 "resourcePath": "scripts\\TGMS_TweenPlay\\TGMS_TweenPlay.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "bff29753-4c89-4a9a-a74f-cc34f6a55f4c",
+            "Value": {
+                "id": "c116b8ec-550d-4ed0-8e29-f35cbe7b60a4",
+                "resourcePath": "scripts\\btn_search_api\\btn_search_api.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -2531,6 +2555,7 @@
         "6bb1caa5-e007-4f66-acf2-28a6369d2b9f",
         "a876528f-04b9-48b7-8e65-450824679969",
         "f10d3e9d-2a75-4079-91fa-cbdfba2f8a26",
+        "bff29753-4c89-4a9a-a74f-cc34f6a55f4c",
         "73cf997b-d2f5-4f89-8786-6abe69ad4ccd",
         "56127d60-b3c1-4fa3-a108-651bb93b73f9"
     ],

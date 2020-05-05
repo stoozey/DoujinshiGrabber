@@ -6,7 +6,8 @@ typebeam		= "";
 if (isTags)
 {
 	xOffset = room_width - ( x + image_xscale);
-	text = global.tags;
+	keyboardText = global.tags;
+	text = keyboardText;
 	keyboard_string = global.tags;
 }
 
