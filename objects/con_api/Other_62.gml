@@ -1,3 +1,4 @@
+#region searching for books and adding to book list
 if (async_load[? "id"] == getSearch)
 {
 	switch (async_load[? "status"] == 0)
@@ -20,18 +21,39 @@ if (async_load[? "id"] == getSearch)
 				_totalBooks = ds_list_size(_postList);
 				for (var i = 0; i < _totalBooks; ++i)
 				{
-					var _thisPost, _postBookID, _postMediaID, _postTitle;
+					var _thisPost, _postBookID, _postMediaID, _postTitle, _postPageCount;
 					_thisPost			= _postList[| i];
 					if (_thisPost == null) continue;
 					
-				    _postBookID	= _thisPost[? "id"];
-				    _postMediaID	= _thisPost[? "media_id"];
-					_postTitle			= ds_map_find_value(_thisPost[? "title"], "pretty");
+				    _postBookID			= _thisPost[? "id"];
+				    _postMediaID			= _thisPost[? "media_id"];
+					_postPageCount	= _thisPost[? "num_pages"];
+					_postTitle					= ds_map_find_value(_thisPost[? "title"], "pretty");
 					if (_postTitle == "") _postTitle = ds_map_find_value(_thisPost[? "title"], "english");
 					if (_postTitle == "") _postTitle = ds_map_find_value(_thisPost[? "title"], "japanese");
 					if (_postTitle == "") _postTitle = "Unknown book name";
 					
+					debug( "--" );
 					debug(_postTitle);
+					debug(_postBookID);
+					debug( book_get_url_cover(_postMediaID) );
+					debug( book_get_url_page(_postMediaID, 1) );
+					
+					var _book;
+					_book = instance_create_depth(0, 0, 0, obj_container_book);
+					with (_book)
+					{
+						title			= _postTitle;
+						mediaID	= _postMediaID;
+						bookID		= _postBookID;
+						coverUrl	= book_get_url_cover(_postMediaID);
+						
+						pageUrls = array_create(_postPageCount);
+						for (var o = 0; o < _postPageCount; ++o)
+						    pageUrls[o] = book_get_url_page(_postMediaID, i);
+						
+						event_user(0);
+					}
 				}
 
 				debug( "found " + string(_totalBooks) + " posts, out of " + string(_totalPages) + " total." );
@@ -55,3 +77,4 @@ if (async_load[? "id"] == getSearch)
 		}break;
 	}
 }
+#endregion
