@@ -4,7 +4,26 @@
     "mvc": "1.0",
     "name": "con_books",
     "eventList": [
-        
+        {
+            "id": "bcd77268-ca55-40a9-9eb3-693f7c8934c4",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 64,
+            "eventtype": 8,
+            "m_owner": "76a85c4b-d0be-41de-bad3-f16d316f9bee"
+        },
+        {
+            "id": "52af810e-b659-40a7-83ae-1efe3974427d",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "76a85c4b-d0be-41de-bad3-f16d316f9bee"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

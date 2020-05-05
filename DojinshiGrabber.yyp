@@ -1943,6 +1943,14 @@
             }
         },
         {
+            "Key": "c52950c7-efd2-49de-8976-8d583eb499e5",
+            "Value": {
+                "id": "02f597f0-0a02-446e-a0ee-41a499bedccb",
+                "resourcePath": "shaders\\shd_blur_gaussian\\shd_blur_gaussian.yy",
+                "resourceType": "GMShader"
+            }
+        },
+        {
             "Key": "c5f3e843-5785-4db9-aa29-53d88468843b",
             "Value": {
                 "id": "9b024975-dc06-47c8-8b70-63977223ede6",
