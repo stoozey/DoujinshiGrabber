@@ -1127,6 +1127,14 @@
             }
         },
         {
+            "Key": "6b8fa35c-02ed-4c25-a4c1-6a8a977345bb",
+            "Value": {
+                "id": "452397e5-d3c3-418c-bbcd-903c7281f5bf",
+                "resourcePath": "sprites\\spr_colour_palette_old\\spr_colour_palette_old.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "6bb1caa5-e007-4f66-acf2-28a6369d2b9f",
             "Value": {
                 "id": "f951eda0-87ea-4fb2-86e4-326649caf039",

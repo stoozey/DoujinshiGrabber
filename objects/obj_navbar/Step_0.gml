@@ -9,7 +9,8 @@ if (_mPos[Y] <= NAVBAR_HEIGHT)
 		myO	= _mPos[Y]
 	}
 	
-	 if (_mPos[X] >= WINDOW[X] - 64)
+	 isHoveringOnX = (_mPos[X] >= WINDOW[X] - 64);
+	 if (isHoveringOnX)
 	 {
 		 isHoveringOnX = true;
 		 if (mouse_check_button_pressed(mb_left))

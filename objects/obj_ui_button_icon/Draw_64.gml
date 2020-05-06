@@ -8,7 +8,7 @@ draw_set_alpha(1);
 
 var _spritePos, _spriteScale;
 _spritePos		= [ _pos[X] + ((image_xscale / 2) * scale), _pos[Y] + ((image_yscale / 2) * scale) ];
-_spriteScale	= [ scale - 0.2, scale - 0.2 ];
+_spriteScale	= [ scale/* - 0.2*/, scale/* - 0.2*/ ];
 
 if (isColours)
 {
