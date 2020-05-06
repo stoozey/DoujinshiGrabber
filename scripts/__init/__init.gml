@@ -41,6 +41,9 @@ WINDOW = [ window_get_width(), window_get_height() ];
 global.downloading	= false;	//	if we are downloading content
 global.waiting				= false;	//	if we are waiting for scontent to be processed
 
+globalvar DIR_TEMP;
+DIR_TEMP = (temp_directory + "\\dojinshigrabber\\books\\");
+
 globalvar BOOK_LIST;
 BOOK_LIST = ds_list_create();
 
@@ -62,23 +65,27 @@ else
 
 #region	getting config data
 
-#macro CFG_HUE			("colour_hue")
-#macro CFG_TAGS		("tag_last")
+#macro CFG_HUE					("colour_hue")
+#macro CFG_TAGS				("tag_last")
+#macro CFG_DIR_SAVE		("dir_save")
 ////	@2.3 : UNCOMMENT CODE
 ////	defaults
 
+#macro DIR_IMAGES_DEFAULT ("images\\")
 
 ////	saved stuff
 //try
 //{
 	global.__cfgHue =  clamp(save_get(CFG_HUE, 0, null, "number"), 0, 255);
 	global.__cfgTags =  save_get(CFG_TAGS, "", null, "string");
+	global.__cfgDirImages = save_get(CFG_DIR_SAVE, DIR_IMAGES_DEFAULT, null, "string");
 //}
 //catch (e)
 //{
 	
-//	global.__cfgHue		= 0;
-//	global.__cfgTags		= "";
+//	global.__cfgHue			= 0;
+//	global.__cfgTags			= "";
+//	global.__cfgDirImages	= DIR_IMAGES_DEFAULT;
 	
 //	if (file_exists(FILE_SAVE))
 //	{
@@ -87,6 +94,9 @@ else
 //		show_message("Your config was corrupted and has been reset.\n(Backed up to file \"config-corrupted.cfg\" for manual fixing.)";
 //	}
 //}
+
+if (string_char_at(global.__cfgDirImages, string_length(global.__cfgDirImages)) != "\\")
+	global.__cfgDirImages += "\\";
 
 #endregion
 

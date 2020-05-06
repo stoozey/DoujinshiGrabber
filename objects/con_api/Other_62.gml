@@ -3,7 +3,7 @@ if (async_load[? "id"] == getSearch)
 {
 	switch (async_load[? "status"] == 0)
 	{
-		//	data has been downloaded
+		#region	data has been downloaded
 		case true:
 		{
 			global.downloading = false;
@@ -43,17 +43,22 @@ if (async_load[? "id"] == getSearch)
 					_book = instance_create_depth(0, 0, 0, obj_container_book);
 					with (_book)
 					{
+						menuID	=i;
+						
 						title			= _postTitle;
 						mediaID	= _postMediaID;
 						bookID		= _postBookID;
 						coverUrl	= book_get_url_cover(_postMediaID);
 						
+						dataDownloadCurrent = array_create(_postPageCount+1);
+						dataDownloadTotal		= array_create(_postPageCount+1);
 						pageUrls = array_create(_postPageCount);
 						for (var o = 0; o < _postPageCount; ++o)
 						    pageUrls[o] = book_get_url_page(_postMediaID, i);
 						
 						event_user(0);
 					}
+					ds_list_add(BOOK_LIST, _book);
 				}
 
 				debug( "found " + string(_totalBooks) + " posts, out of " + string(_totalPages) + " total." );
@@ -64,8 +69,9 @@ if (async_load[? "id"] == getSearch)
 			
 			global.waiting = false;
 		}break;
+		#endregion
 		
-		//	we are still downloading data
+		#region	we are still downloading data
 		case false:
 		{
 			global.downloading = true;
@@ -75,6 +81,7 @@ if (async_load[? "id"] == getSearch)
 			
 			debug( string(dataDownloadCurrent) + " / " + string(dataDownloadTotal));
 		}break;
+		#endregion
 	}
 }
 #endregion

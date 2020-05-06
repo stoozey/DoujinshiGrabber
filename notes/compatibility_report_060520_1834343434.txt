@@ -1,0 +1,8 @@
+Converting GML script: ${project_dir}\scripts\uuid_generate\uuid_generate.gml
+Converted description /// @description uuid_generate()
+
+Converting GML script: ${project_dir}\scripts\uuid_array_implode\uuid_array_implode.gml
+Converted description /// @description uuid_array_implode()
+
+Converting GML script: ${project_dir}\scripts\dec_to_hex\dec_to_hex.gml
+Converted description /// @description  dec_to_hex(dec)/// @param dec

@@ -1,1 +1,1 @@
-instance_deactivate_object(id);
+//instance_deactivate_object(id);

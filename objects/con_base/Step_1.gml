@@ -1,3 +1,4 @@
+///@desc get window size, set ui
 WINDOW = [ window_get_width(), window_get_height() ];
 
 if (WINDOW[X] != display_get_gui_width()) || (WINDOW[X] != display_get_gui_width())
