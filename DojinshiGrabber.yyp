@@ -1799,6 +1799,14 @@
             }
         },
         {
+            "Key": "aa388cfe-ec06-4183-9a55-478561a09a36",
+            "Value": {
+                "id": "cdf967bd-7659-4522-9345-7a7d5074ca99",
+                "resourcePath": "scripts\\draw_set_align\\draw_set_align.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "ab5aec8b-6de9-4458-8904-df19d38bc5f9",
             "Value": {
                 "id": "74f1d281-6a7c-4856-8b50-a5b12c4e598b",
@@ -2816,6 +2824,7 @@
         "a168bbdd-0ee6-4dc1-aec3-da17e420f347",
         "6b746217-6260-4b98-83bb-3bc85eca3c6d",
         "73cf997b-d2f5-4f89-8786-6abe69ad4ccd",
+        "aa388cfe-ec06-4183-9a55-478561a09a36",
         "56127d60-b3c1-4fa3-a108-651bb93b73f9",
         "a11ab29f-3adb-48ca-8647-374cd7cd5da8"
     ],

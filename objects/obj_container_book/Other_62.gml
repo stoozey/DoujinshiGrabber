@@ -36,6 +36,7 @@ if (async_load[? "id"] == getCover)
 		{
 			global.downloading = false;
 			cover = sprite_add(async_load[? "result"], 0, false, false, 0, 0);
+			with (con_books) { ++booksLoaded; };
 		}break;
 		
 		//	data is downloading

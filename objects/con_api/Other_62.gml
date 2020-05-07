@@ -23,7 +23,6 @@ if (async_load[? "id"] == getSearch)
 				{
 					var _thisPost, _postBookID, _postMediaID, _postTitle, _postPageCount;
 					_thisPost			= _postList[| i];
-					if (_thisPost == null) continue;
 					
 				    _postBookID			= _thisPost[? "id"];
 				    _postMediaID			= _thisPost[? "media_id"];
@@ -39,6 +38,7 @@ if (async_load[? "id"] == getSearch)
 					debug( book_get_url_cover(_postMediaID) );
 					debug( book_get_url_page(_postMediaID, 1) );
 					
+					//	create book with grabbed data
 					var _book;
 					_book = instance_create_depth(0, 0, 0, obj_container_book);
 					with (_book)
@@ -60,14 +60,20 @@ if (async_load[? "id"] == getSearch)
 					}
 					ds_list_add(BOOK_LIST, _book);
 				}
-
 				debug( "found " + string(_totalBooks) + " posts, out of " + string(_totalPages) + " total." );
+				global.pageMax = ceil(_totalPages / _totalBooks);
+				debug("page count: " + string(global.pageMax) );
+				
+				//	give book controller info for drawing
+				with (con_books)
+				{
+					state				= VIEW_STATE.BOOK_LIST;
+					booksTotal	= _totalBooks;
+				}
 			}
 			else
 				show_message("An error occured when getting the data. Please try again / try another query.");
 			
-			
-			global.waiting = false;
 		}break;
 		#endregion
 		

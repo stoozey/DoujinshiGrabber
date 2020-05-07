@@ -1,7 +1,5 @@
 ///@desc get window size, set ui
 
-
-
 WINDOW = [ window_get_width(), window_get_height() ];
 
 if (WINDOW[X] != display_get_gui_width()) || (WINDOW[X] != display_get_gui_width())
@@ -27,6 +25,14 @@ if (WINDOW[X] != display_get_gui_width()) || (WINDOW[X] != display_get_gui_width
 			with (anchorOwner) { _pos = x + image_xscale; };
 			x = _pos + 16;
 		}
+	}
+	
+	with (con_books)
+	{
+		if (surface_exists(surfBookList))
+			surface_resize(surfBookList, WINDOW[X], WINDOW[Y] - VIEW_Y);
+		if (surface_exists(surfBookPages))
+			surface_resize(surfBookPages, WINDOW[X], WINDOW[Y] - VIEW_Y);
 	}
 	#endregion
 	

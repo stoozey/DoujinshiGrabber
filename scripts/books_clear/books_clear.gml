@@ -8,3 +8,12 @@ for (var i = 0; i < _size; ++i)
     instance_destroy(_thisBook);
 }
 ds_list_clear(BOOK_LIST);
+
+with (con_books)
+{
+	booksTotal		= 0;
+	booksLoaded	= 0;
+	state					= VIEW_STATE.NULL;
+	
+	bookListScroll	= 0;
+}

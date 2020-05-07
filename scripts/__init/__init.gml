@@ -26,6 +26,12 @@ gml_pragma("global", "__init()");
 
 #macro FILE_SAVE	("config.cfg")
 
+//	where the book view starts on Y
+#macro VIEW_Y (160)
+
+#macro COVER_W (272)
+#macro COVER_H (320)
+
 #macro NAVBAR_HEIGHT	(33)
 
 #macro WINDOW_W_MIN	(1024)
@@ -65,9 +71,11 @@ else
 
 #region	getting config data
 
-#macro CFG_HUE					("colour_hue")
-#macro CFG_TAGS				("tag_last")
-#macro CFG_DIR_SAVE		("dir_save")
+#macro CFG_HUE						("colour_hue")
+#macro CFG_TAGS					("tag_last")
+#macro CFG_DIR_SAVE			("dir_save")
+#macro CFG_WINDOW_W		("window_w")
+#macro CFG_WINDOW_H		("window_h")
 ////	@2.3 : UNCOMMENT CODE
 ////	defaults
 
@@ -79,6 +87,13 @@ else
 	global.__cfgHue =  clamp(save_get(CFG_HUE, 0, null, "number"), 0, 255);
 	global.__cfgTags =  save_get(CFG_TAGS, "", null, "string");
 	global.__cfgDirImages = save_get(CFG_DIR_SAVE, DIR_IMAGES_DEFAULT, null, "string");
+	
+	//var _w, _h;
+	//_w = clamp(save_get(CFG_WINDOW_W, WINDOW_W_MIN, null, "number"), WINDOW_W_MIN, display_get_width());
+	//_h = clamp(save_get(CFG_WINDOW_H, WINDOW_H_MIN, null, "number"), WINDOW_H_MIN, display_get_height());
+	//window_set_size(_w, _h);
+	//WINDOW = [ _w, _h ];
+	//display_set_gui_size(_w, _h);
 //}
 //catch (e)
 //{
