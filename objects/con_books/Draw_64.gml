@@ -78,7 +78,7 @@ switch (state)
 			
 			if (_x + _newSize[X] >= WINDOW[X])
 			{
-				_distanceBetweenEdge = WINDOW[X] - _x;
+				_distanceBetweenEdge = min(WINDOW[X] - _x, _distanceBetweenEdge);
 				
 				_x	= _offset[X];
 				_y	+= _newSize[Y] + _offset[Y];
@@ -117,7 +117,19 @@ if (global.waiting)
 {
 	var _loadTotal = 0, _loadAmount = 0, _percent, _text;
 	if (state == VIEW_STATE.BOOK_LIST)
-		with (obj_container_book) { _loadTotal += dataDownloadTotal[0]; _loadAmount += dataDownloadCurrent[0]; };
+	{
+		with (obj_container_book)
+		{
+			var _tot, _cur;
+			_tot = dataDownloadTotal[0];
+			_cur = dataDownloadCurrent[0];
+			
+			if (_tot == undefined) || (_cur == undefined) continue;
+			
+			_loadTotal		+= _tot;
+			_loadAmount	+= _cur;
+		}
+	}
 	
 	switch ((_loadTotal == 0) && (_loadAmount == 0) )
 	{

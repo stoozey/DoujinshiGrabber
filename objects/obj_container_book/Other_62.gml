@@ -29,7 +29,17 @@ for (var i = 0; i < _totalPages; ++i)
 
 if (async_load[? "id"] == getCover)
 {
-	switch (async_load[? "status"] == 0)
+	var _status;
+	_status = async_load[? "status"];
+	if (_status < 0)
+	{
+		debug("SHIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIT");
+		with (con_books) { --booksTotal; };
+		instance_destroy();
+		exit;
+	}
+	
+	switch (_status == 0)
 	{
 		//	data has been downloaded
 		case true:

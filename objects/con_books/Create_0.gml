@@ -5,7 +5,8 @@ state						= VIEW_STATE.NULL;
 surfBookList		= -1;	//	the surface containing the list of all search results
 surfBookPages	= -1;	//	the surface containing the selected book and its appropriate page
 
-bookListScroll = 0;
+bookListScroll				= 0;
+bookListScrollReal	= 0;
 
 booksTotal		= 0;
 booksLoaded	= 0;

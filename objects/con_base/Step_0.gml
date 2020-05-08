@@ -46,8 +46,8 @@ if (_horizontal) && (_vertical)
 if (resizing)
 {
 	var _w, _h;
-	_w	= (_resized[X] < WINDOW_W_MIN) ? WINDOW_W_MIN : _resized[X];
-	_h	= (_resized[Y] < WINDOW_H_MIN)	? WINDOW_H_MIN : _resized[Y];
+	_w	= (mouse_x_gui <= WINDOW_W_MIN) ? WINDOW_W_MIN : _resized[X];
+	_h	= (mouse_y_gui<= WINDOW_H_MIN)	? WINDOW_H_MIN : _resized[Y];
 	window_set_size(_w, _h);
 }
 

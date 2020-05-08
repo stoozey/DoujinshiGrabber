@@ -6,7 +6,9 @@ switch (state)
 	case VIEW_STATE.BOOK_LIST:
 	{
 		global.waiting = (booksLoaded < booksTotal);
-		bookListScroll -= (mouse_wheel_up() - mouse_wheel_down()) * 20;
+		bookListScrollReal -= (mouse_wheel_up() - mouse_wheel_down()) * 24;
+		
+		bookListScroll = Ease(bookListScroll, bookListScrollReal, 0.25, EaseInOutSine);
 	}break;
 	
 	case VIEW_STATE.BOOK_PAGES:
