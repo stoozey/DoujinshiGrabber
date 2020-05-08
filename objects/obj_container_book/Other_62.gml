@@ -33,9 +33,8 @@ if (async_load[? "id"] == getCover)
 	_status = async_load[? "status"];
 	if (_status < 0)
 	{
-		debug("SHIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIT");
-		with (con_books) { --booksTotal; };
-		instance_destroy();
+		debug("Book \"" + title + "\" had a problem downloading their cover.");
+		book_delete(id);
 		exit;
 	}
 	

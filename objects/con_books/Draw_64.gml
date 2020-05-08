@@ -57,12 +57,14 @@ switch (state)
 		var _x, _y;
 		_x = _offset[X];
 		_y = 0;
-		draw_set_align(fa_center, fa_top);
+		//draw_set_align(fa_center, fa_top);
 		draw_set_font(global.fontJpn);
 		for (var i = 0; i < booksTotal; ++i)
 		{
 			var _thisBook, _cover, _title;
 			_thisBook	= BOOK_LIST[| i];
+			if (_thisBook == undefined) continue;
+			
 			_cover		= _thisBook.cover;
 			_title			= _thisBook.title;
 			if (_cover == -1) || (!sprite_exists(_cover)) break;
@@ -86,17 +88,19 @@ switch (state)
 			
 			draw_sprite_ext(_cover, 0, _x, _y - bookListScroll, _scale, _scale, 0, c_white, 1);
 			
-			var _textSize, _textScale;
-			_textSize		= string_width(_title);
-			_textScale	= 1;
-			while ((_textSize * _textScale) > (_newSize[X] + _offset[X]))
-				_textScale -= 0.01;
+			//var _textSize, _textScale;
+			//_textSize		= string_width(_title);
+			//_textScale	= 1;
+			//while ((_textSize * _textScale) > (_newSize[X] + _offset[X]))
+			//	_textScale -= 0.01;
 			
-			draw_text_transformed(_x + (_newSize[X] / 2), _y + _newSize[Y] + 4 - bookListScroll, _title, _textScale, _textScale, 0);
+			//draw_text_transformed(_x + (_newSize[X] / 2), _y + _newSize[Y] + 4 - bookListScroll, _title, _textScale, _textScale, 0);
+			
+			draw_text_wrapped(_title, _x - 8 /*+ (_newSize[X] / 2)*/, _y + _newSize[Y] + 4 - bookListScroll, _newSize[X], 1, bookTitleX);
 			
 			_x	+=_newSize[X] + _offset[X];
 		}
-		draw_set_align(fa_left, fa_top);
+		//draw_set_align(fa_left, fa_top);
 	}break;
 	
 	case VIEW_STATE.BOOK_PAGES:
@@ -143,5 +147,7 @@ if (global.waiting)
 	draw_set_align(fa_center, fa_middle);
 	draw_text(WINDOW[X] / 2, WINDOW[Y] / 2, _text);
 	draw_set_align(fa_left, fa_top);
+	
+	alarm[0] = room_speed * 2;
 }
 #endregion

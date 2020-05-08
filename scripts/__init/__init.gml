@@ -63,7 +63,7 @@ var _fontPath;
 _fontPath = "data\\fonts\\KosugiMaru-Regular.ttf";
 if (file_exists(_fontPath))
 {
-	global.fontJpn = font_add(_fontPath, 14, false, false, 32, 423);
+	global.fontJpn = font_add(_fontPath, 18, false, false, 32, 423);
 	debug("loaded japanese font");
 }
 else

@@ -32,33 +32,13 @@ if (async_load[? "id"] == getSearch)
 					if (_postTitle == "") _postTitle = ds_map_find_value(_thisPost[? "title"], "japanese");
 					if (_postTitle == "") _postTitle = "Unknown book name";
 					
-					debug( "--" );
-					debug(_postTitle);
-					debug(_postBookID);
-					debug( book_get_url_cover(_postMediaID) );
-					debug( book_get_url_page(_postMediaID, 1) );
+					//debug( "--" );
+					//debug(_postTitle);
+					//debug(_postBookID);
+					//debug( book_get_url_cover(_postMediaID) );
+					//debug( book_get_url_page(_postMediaID, 1) );
 					
-					//	create book with grabbed data
-					var _book;
-					_book = instance_create_depth(0, 0, 0, obj_container_book);
-					with (_book)
-					{
-						menuID	=i;
-						
-						title			= _postTitle;
-						mediaID	= _postMediaID;
-						bookID		= _postBookID;
-						coverUrl	= book_get_url_cover(_postMediaID);
-						
-						dataDownloadCurrent = array_create(_postPageCount+1);
-						dataDownloadTotal		= array_create(_postPageCount+1);
-						pageUrls = array_create(_postPageCount);
-						for (var o = 0; o < _postPageCount; ++o)
-						    pageUrls[o] = book_get_url_page(_postMediaID, i);
-						
-						event_user(0);
-					}
-					ds_list_add(BOOK_LIST, _book);
+					book_create(i, _postTitle, _postMediaID, _postBookID, _postPageCount);
 				}
 				debug( "found " + string(_totalBooks) + " posts, out of " + string(_totalPages) + " total." );
 				global.pageMax = ceil(_totalPages / _totalBooks);
