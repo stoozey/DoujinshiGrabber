@@ -10,7 +10,9 @@
         "cbd1b70b-1fce-440c-ad60-f6e83c0e15fa",
         "dad8d77b-1879-4904-a917-a7a2ccd951d0",
         "a168bbdd-0ee6-4dc1-aec3-da17e420f347",
-        "6b746217-6260-4b98-83bb-3bc85eca3c6d"
+        "6b746217-6260-4b98-83bb-3bc85eca3c6d",
+        "388b9087-fbfe-4e16-bd50-b64ce92f84b7",
+        "e6365f7f-a56f-480d-a1e4-6470a889a3d8"
     ],
     "filterType": "GMScript",
     "folderName": "Books",

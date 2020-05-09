@@ -11,7 +11,8 @@ bookListScrollReal	= 0;
 booksTotal		= 0;
 booksLoaded	= 0;
 
+bookPageHeight = 0;
+
 bookTweenTime = room_speed * 10;
 bookTitleX	= 0;
-TweenFire(id, EaseInOutQuad, TWEEN_MODE_ONCE, false, 0, bookTweenTime, "bookTitleX", 0, 1);
 alarm[0] = bookTweenTime + room_speed;

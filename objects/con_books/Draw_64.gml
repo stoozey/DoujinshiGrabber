@@ -67,14 +67,19 @@ switch (state)
 			
 			_cover		= _thisBook.cover;
 			_title			= _thisBook.title;
-			if (_cover == -1) || (!sprite_exists(_cover)) break;
+			if (_cover == -1) || (!sprite_exists(_cover)) continue;
 			
 			var _size, _scale, _newSize;
-			_size = [ sprite_get_width(_cover), sprite_get_height(_cover) ];
-			_scale = 1;
-			
+			_size		= [ sprite_get_width(_cover), sprite_get_height(_cover) ];
+			_scale	= 1;
+			//while ((_size[X] * _scale) > COVER_W)
+			//{
+			//	_scale -= 0.01;
+			//	//_y *= 1.01;
+			//}
 			while ((_size[Y] * _scale) > COVER_H)
 				_scale -= 0.01;
+			
 				
 			_newSize = [ (_size[X] * _scale), (_size[Y] * _scale) ];
 			
@@ -86,21 +91,33 @@ switch (state)
 				_y	+= _newSize[Y] + _offset[Y];
 			}
 			
+			//	intereacting with books
+			var _realY, _rect;
+			_realY	= _y + VIEW_Y - bookListScroll;
+			_rect		= [ _x, _realY, _x + _newSize[X], _realY + _newSize[Y] ];
+			if (collision_rectangle(_rect[0], _rect[1], _rect[2], _rect[3], cursor, false, true))
+			{
+				book_scale_up(_thisBook);
+			}	
+			else
+			{
+				book_scale_down(_thisBook);
+			}
+			
+			var _scaleSelected;
+			_scaleSelected = _thisBook.scale;
+			
+			_scale *= _scaleSelected;
+			
 			draw_sprite_ext(_cover, 0, _x, _y - bookListScroll, _scale, _scale, 0, c_white, 1);
 			
-			//var _textSize, _textScale;
-			//_textSize		= string_width(_title);
-			//_textScale	= 1;
-			//while ((_textSize * _textScale) > (_newSize[X] + _offset[X]))
-			//	_textScale -= 0.01;
-			
-			//draw_text_transformed(_x + (_newSize[X] / 2), _y + _newSize[Y] + 4 - bookListScroll, _title, _textScale, _textScale, 0);
-			
-			draw_text_wrapped(_title, _x - 8 /*+ (_newSize[X] / 2)*/, _y + _newSize[Y] + 4 - bookListScroll, _newSize[X], 1, bookTitleX);
+			var _textOffset;
+			_textOffset = 4;
+			draw_text_wrapped(_title, _x - 8, ((_y + _newSize[Y] - bookListScroll) * _scaleSelected) + _textOffset, _newSize[X] * _scaleSelected, 1, bookTitleX);
 			
 			_x	+=_newSize[X] + _offset[X];
 		}
-		//draw_set_align(fa_left, fa_top);
+		bookPageHeight = _y;
 	}break;
 	
 	case VIEW_STATE.BOOK_PAGES:
@@ -148,6 +165,7 @@ if (global.waiting)
 	draw_text(WINDOW[X] / 2, WINDOW[Y] / 2, _text);
 	draw_set_align(fa_left, fa_top);
 	
-	alarm[0] = room_speed * 2;
+	alarm[0]		= room_speed * 2;
+	bookTitleX	= 0;
 }
 #endregion

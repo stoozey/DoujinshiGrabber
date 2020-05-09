@@ -26,16 +26,20 @@ gml_pragma("global", "__init()");
 
 #macro FILE_SAVE	("config.cfg")
 
+#macro ERROR_MSG_GRAB_FAIL ("An error occured when getting the data. Please try again / try another query.")
+
 //	where the book view starts on Y
 #macro VIEW_Y (160)
 
-#macro COVER_W (272)
-#macro COVER_H (320)
+#macro WINDOW_W_MIN	(1024)
+#macro WINDOW_H_MIN		(768)
+
+#macro COVER_W (WINDOW_W_MIN / 2.5)
+#macro COVER_H (360)
 
 #macro NAVBAR_HEIGHT	(33)
 
-#macro WINDOW_W_MIN	(1024)
-#macro WINDOW_H_MIN		(768)
+
 
 #endregion
 

@@ -17,6 +17,13 @@ if (async_load[? "id"] == getSearch)
 				_totalPages			= _result[? "num_pages"];
 				_postsPerPage	= _result[? "per_page"];
 				
+				if (_postList == null)
+				{
+					show_message(ERROR_MSG_GRAB_FAIL);
+					global.waiting = false;
+					exit;
+				}
+				
 				var _totalBooks;
 				_totalBooks = ds_list_size(_postList);
 				for (var i = 0; i < _totalBooks; ++i)
@@ -52,7 +59,10 @@ if (async_load[? "id"] == getSearch)
 				}
 			}
 			else
-				show_message("An error occured when getting the data. Please try again / try another query.");
+			{
+				show_message(ERROR_MSG_GRAB_FAIL);
+				global.waiting = false;
+			}
 			
 		}break;
 		#endregion
