@@ -8,6 +8,8 @@ surfBookPages	= -1;	//	the surface containing the selected book and its appropri
 bookListScroll				= 0;
 bookListScrollReal	= 0;
 
+bookSelected = noone;
+
 booksTotal		= 0;
 booksLoaded	= 0;
 

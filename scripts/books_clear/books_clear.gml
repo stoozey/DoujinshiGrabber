@@ -15,5 +15,6 @@ with (con_books)
 	booksLoaded	= 0;
 	state					= VIEW_STATE.NULL;
 	
-	bookListScroll	= 0;
+	bookListScroll				= 0;
+	bookListScrollReal	= 0;
 }

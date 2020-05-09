@@ -54,9 +54,10 @@ switch (state)
 		var _offset;
 		_offset = [ 64, 92 ];	//	the x and y offset between eat book cover
 		
-		var _x, _y;
+		var _x, _y, _lastSizeY;
 		_x = _offset[X];
 		_y = 0;
+		_lastSizeY = 0;
 		//draw_set_align(fa_center, fa_top);
 		draw_set_font(global.fontJpn);
 		for (var i = 0; i < booksTotal; ++i)
@@ -89,8 +90,9 @@ switch (state)
 				
 				_x	= _offset[X];
 				_y	+= _newSize[Y] + _offset[Y];
+				_lastSizeY = 0;
 			}
-			
+			_lastSizeY = max(_lastSizeY, _newSize[Y]);
 			//	intereacting with books
 			var _realY, _rect;
 			_realY	= _y + VIEW_Y - bookListScroll;
@@ -98,6 +100,11 @@ switch (state)
 			if (collision_rectangle(_rect[0], _rect[1], _rect[2], _rect[3], cursor, false, true))
 			{
 				book_scale_up(_thisBook);
+				if (mouse_check_button_pressed(mb_left)) && (bookSelected == noone)
+				{
+					//	fade out to next state: viewing book
+					bookSelected = _thisBook;
+				}
 			}	
 			else
 			{
@@ -117,7 +124,7 @@ switch (state)
 			
 			_x	+=_newSize[X] + _offset[X];
 		}
-		bookPageHeight = _y;
+		bookPageHeight = max(_y - _lastSizeY, 0);
 	}break;
 	
 	case VIEW_STATE.BOOK_PAGES:

@@ -35,7 +35,7 @@ gml_pragma("global", "__init()");
 #macro WINDOW_H_MIN		(768)
 
 #macro COVER_W (WINDOW_W_MIN / 2.5)
-#macro COVER_H (360)
+#macro COVER_H (280)	//	good small: 280, good large: 400
 
 #macro NAVBAR_HEIGHT	(33)
 
