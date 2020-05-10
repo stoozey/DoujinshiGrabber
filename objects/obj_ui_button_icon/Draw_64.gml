@@ -18,4 +18,7 @@ if (isColours)
 	}
 }
 
-draw_sprite_ext(uiSprite, 0, _spritePos[X], _spritePos[Y], _spriteScale[X], _spriteScale[Y], 0, COL[colour.highlight], 1);
+var _index;
+_index = (isBandwidth) ? global.lowBandwidth : 0;
+
+draw_sprite_ext(uiSprite, _index, _spritePos[X], _spritePos[Y], _spriteScale[X], _spriteScale[Y], 0, COL[colour.highlight], 1);

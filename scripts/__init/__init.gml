@@ -93,6 +93,7 @@ else
 #macro CFG_DIR_SAVE			("dir_save")
 #macro CFG_WINDOW_W		("window_w")
 #macro CFG_WINDOW_H		("window_h")
+#macro CFG_LOW_BANDW		("low_bandwidth_mode")
 ////	@2.3 : UNCOMMENT CODE
 ////	defaults
 
@@ -104,6 +105,7 @@ else
 	global.__cfgHue =  clamp(save_get(CFG_HUE, 0, null, "number"), 0, 255);
 	global.__cfgTags =  save_get(CFG_TAGS, "", null, "string");
 	global.__cfgDirImages = save_get(CFG_DIR_SAVE, DIR_IMAGES_DEFAULT, null, "string");
+	global.__cfgLowBandwidth = save_get(CFG_LOW_BANDW, false, null, "bool");
 	
 	//var _w, _h;
 	//_w = clamp(save_get(CFG_WINDOW_W, WINDOW_W_MIN, null, "number"), WINDOW_W_MIN, display_get_width());
@@ -118,6 +120,7 @@ else
 //	global.__cfgHue			= 0;
 //	global.__cfgTags			= "";
 //	global.__cfgDirImages	= DIR_IMAGES_DEFAULT;
+//	global.__cfgLowBandwidth = false;
 	
 //	if (file_exists(FILE_SAVE))
 //	{

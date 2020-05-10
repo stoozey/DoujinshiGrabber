@@ -17,3 +17,13 @@ currentAnim	= UI_EVENT.ANIM_NULL;
 isEntering		= false;
 isLeaving			= false;
 isPressing		= false;
+
+//if (object_index != obj_ui_label) && (desc != "")
+//{
+//	var _label;
+//	_label = instance_create_depth(0, 0, 0, obj_ui_label);
+//	_label.parent = id;
+//	_label.image_xscale = 64;
+//	_label.image_yscale = 32;
+//	_label.text = desc;
+//}
