@@ -45,8 +45,21 @@ gml_pragma("global", "__init()");
 
 #region init code
 
+#macro BASE_W (1152)
+#macro BASE_H (896)
 globalvar WINDOW;
 WINDOW = [ window_get_width(), window_get_height() ];
+var _dW, _dH;
+_dW	= display_get_width();
+_dH	= display_get_height();
+if ((BASE_W >_dW))|| (BASE_H > _dH)
+{
+	var _w, _h;
+	_w	= BASE_W - (BASE_W - _dW - 92);
+	_h	= BASE_H - (BASE_H - _dH - 92);
+	window_set_size(_w, _h);
+	WINDOW = [ window_get_width(), window_get_height() ];
+}
 
 global.downloading	= false;	//	if we are downloading content
 global.waiting				= false;	//	if we are waiting for scontent to be processed

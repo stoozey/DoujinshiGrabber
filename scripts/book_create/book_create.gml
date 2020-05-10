@@ -31,7 +31,8 @@ with (_book)
 	event_user(0);
 }
 
-ds_list_add(BOOK_LIST, _book);
+enum BOOK_IND { CONTAINER,	XX,	YY, SCALE };
+ds_list_add(BOOK_LIST, [ _book, 0, 0, 1 ] );
 
 debug("##### Created book: " + _postTitle);
 

@@ -3,7 +3,7 @@ _size = ds_list_size(BOOK_LIST);
 for (var i = 0; i < _size; ++i)
 {
 	var _thisBook;
-	_thisBook = BOOK_LIST[| i];
+	_thisBook = book_get_container(i);
 	instance_deactivate_object(_thisBook);
     instance_destroy(_thisBook);
 }
@@ -17,4 +17,5 @@ with (con_books)
 	
 	bookListScroll				= 0;
 	bookListScrollReal	= 0;
+	listHasDeterminedPositions = false;
 }
