@@ -25,5 +25,7 @@ scrollbarScale = 1;
 pagesTotal		= 0;
 pagesLoaded	= 0;
 
+downloadAnim = 0;
+alarm[1] = 1;
 
 listHasDeterminedPositions = false;

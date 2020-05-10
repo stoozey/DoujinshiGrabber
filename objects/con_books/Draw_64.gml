@@ -205,20 +205,25 @@ if (global.waiting)
 		case true: _percent = 0; break;
 	}
 	
-	_text = "Loading...\n" + string(_percent) + "%";
+	_text = string(_percent) + "%";
 	
 	var _xx, _yy;
 	_xx	= WINDOW[X] / 2;
 	_yy	= WINDOW[Y] / 2;
 	draw_set_font(fnt_textbox);
 	var _w, _h;
-	_w	= string_width(_text) + 32;
-	_h	= string_height(_text) + 32;
+	_w	= 156;
+	_h	= string_height(_text) + 156;
 	draw_9slice(_xx - (_w / 2), _yy - (_h / 2), _w, _h, spr_9slice_button, 0, COL[colour.dark], 1, 0.6);
+	
+	var _loadingBuff;
+	_loadingBuff = 74;
+	
+	draw_loading_icon(_xx - 64, _yy - _loadingBuff);
 	
 	draw_set_colour(COL[colour.text]);
 		draw_set_align(fa_center, fa_middle);
-			draw_text(_xx, _yy, _text);
+			draw_text(_xx, _yy + _loadingBuff, _text);
 		draw_set_align(fa_left, fa_top);
 	draw_set_colour(c_white);
 
