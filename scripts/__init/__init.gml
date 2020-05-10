@@ -39,14 +39,17 @@ gml_pragma("global", "__init()");
 
 #macro NAVBAR_HEIGHT	(33)
 
-
+#macro BASE_W (1152)
+#macro BASE_H (896)
 
 #endregion
 
 #region init code
 
-#macro BASE_W (1152)
-#macro BASE_H (896)
+
+var _hello;
+_hello = "HELLO THERE! I see you like reading decompiled code. How is that going for you? Have you found anything cool? Probably not. Anyway, download jOeSU at https://stoozey.itch.io/joesu..... JUST KIDDING! You don't have to... unless... maybe... y-you will...?"
+
 globalvar WINDOW;
 WINDOW = [ window_get_width(), window_get_height() ];
 var _dW, _dH;
