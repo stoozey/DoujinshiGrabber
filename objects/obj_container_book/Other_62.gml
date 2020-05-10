@@ -2,15 +2,34 @@ var _totalPages;
 _totalPages = array_length_1d(pageUrls);
 for (var i = 0; i < _totalPages; ++i)
 {
-	if (async_load[? "id"] == getPages)
+	if (async_load[? "id"] == getPages[i])
 	{
-		switch (async_load[? "status"] == 0)
+		var _status;
+		_status = async_load[? "status"];
+		//if (_status < 0)
+		//{
+		//	//var _ext;
+		//	//_ext = dir_get_ext(async_load[? "result"]);
+		//	debug("PAGE #" + string(i) + " WAS NOT CREATED, CHANGING TO PNG");
+			
+		//	  var _dest;
+		//	_dest = dir_make_png(book_dir_get_page(id, i, true));
+	
+		//	getPages[i] = http_get_file(pageUrls[i], _dest);
+			
+		//	continue;
+		//}
+		
+		switch (_status == 0)
 		{
 			//	data has been downloaded
 			case true:
 			{
 				global.downloading = false;
+				pages[i] = sprite_add(async_load[? "result"], 0, false, false, 0, 0);
 				
+				with (con_books) { ++pagesLoaded; };
+				debug("Loaded page #" + string(i));
 			}break;
 			
 			//	data is downloading

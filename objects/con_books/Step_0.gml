@@ -5,7 +5,10 @@ switch (state)
 {
 	case VIEW_STATE.BOOK_LIST:
 	{
-		global.waiting = (booksLoaded < booksTotal);
+		if (bookSelected == noone)
+			global.waiting = (booksLoaded < booksTotal);
+		else
+			global.waiting = (pagesLoaded < pagesTotal);
 		
 		
 		bookListScrollReal -= (mouse_wheel_up() - mouse_wheel_down()) * 32;

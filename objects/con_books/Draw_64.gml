@@ -41,7 +41,7 @@ draw_clear_alpha(c_white, 0);
 if (global.waiting)
 {
 	shader_set(shd_blur_gaussian)
-	shader_set_uniform_f(uData, WINDOW[X],WINDOW[Y], 12)//width,height,radius
+	shader_set_uniform_f(uData, WINDOW[X]/2,WINDOW[Y]/2, shaderRadius)//width,height,radius
 }
 
 var _distanceBetweenEdge;
@@ -86,7 +86,16 @@ switch (state)
 					if (mouse_check_button_pressed(mb_left)) && (bookSelected == noone)
 					{
 						//	fade out to next state: viewing book
+						with (obj_container_book)
+						{
+							if (id != _thisBook)
+								book_scale_down(id)
+							else
+								event_user(1);
+						}
 						bookSelected = _thisBook;
+						TweenFire(id, EaseOutSine, 0, 1, 0, 0.65, "shaderRadius", 0, 12);
+						global.waiting = true;
 					}
 				}	
 				else
@@ -122,23 +131,46 @@ if (shader_current() != -1)
 
 surface_reset_target();
 
-draw_surface(surfBookList, (_distanceBetweenEdge / 2), VIEW_Y);
+draw_surface(surfBookList, 0, VIEW_Y);
 // loading text
 if (global.waiting)
 {
 	var _loadTotal = 0, _loadAmount = 0, _percent, _text;
 	if (state == VIEW_STATE.BOOK_LIST)
 	{
-		with (obj_container_book)
+		if (bookSelected == noone)
 		{
-			var _tot, _cur;
-			_tot = dataDownloadTotal[0];
-			_cur = dataDownloadCurrent[0];
+			with (obj_container_book)
+			{
+				var _tot, _cur;
+				_tot = dataDownloadTotal[0];
+				_cur = dataDownloadCurrent[0];
 			
-			if (_tot == undefined) || (_cur == undefined) continue;
+				if (_tot == undefined) || (_cur == undefined) continue;
 			
-			_loadTotal		+= _tot;
-			_loadAmount	+= _cur;
+				_loadTotal		+= _tot;
+				_loadAmount	+= _cur;
+			}
+		}
+		else
+		{
+			with (bookSelected)
+			{
+				var _totalPages;
+				_totalPages = array_length_1d(pageUrls);
+				for (var i = 0; i < _totalPages; ++i) 
+				{
+					var _i, _tot, _cur;
+					_i			= (i + 1);
+					_tot	= dataDownloadTotal[_i];
+					_cur	= dataDownloadCurrent[_i];
+			
+					if (_tot == undefined) || (_cur == undefined) continue;
+			
+					_loadTotal		+= _tot;
+					_loadAmount	+= _cur;
+				}
+			}
 		}
 	}
 	
@@ -158,7 +190,8 @@ if (global.waiting)
 	alarm[0]		= room_speed * 2;
 	bookTitleX	= 0;
 }
-else if (state == VIEW_STATE.BOOK_LIST) && (!listHasDeterminedPositions)	//	set list menu positions
+#region set list menu positions
+else if (state == VIEW_STATE.BOOK_LIST) && (!listHasDeterminedPositions)
 {
 	var _offset, _x, _y, _lastSizeY, _pagesInRow;
 	_offset = [ 64, 92 ];	//	the x and y offset between eat book cover
@@ -232,3 +265,4 @@ else if (state == VIEW_STATE.BOOK_LIST) && (!listHasDeterminedPositions)	//	set 
 	bookPageHeight = max(_y - _lastSizeY, 0);
 	listHasDeterminedPositions = true;
 }
+#endregion

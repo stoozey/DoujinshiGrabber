@@ -1,4 +1,5 @@
 uData = shader_get_uniform(shd_blur_gaussian, "size");
+shaderRadius = 0;
 
 enum VIEW_STATE { BOOK_LIST, BOOK_PAGES, NULL };
 state						= VIEW_STATE.NULL;
@@ -18,5 +19,10 @@ bookPageHeight = 0;
 bookTweenTime = room_speed * 10;
 bookTitleX	= 0;
 alarm[0] = bookTweenTime + room_speed;
+
+
+pagesTotal		= 0;
+pagesLoaded	= 0;
+
 
 listHasDeterminedPositions = false;

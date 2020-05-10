@@ -1,4 +1,6 @@
 ///@arg book_id
+if (con_books.bookSelected != noone) exit;
+
 with (argument0)
 {
 	if (scale != 1.05) && (!TweenExists(scaleTween))

@@ -16,7 +16,11 @@
         "a168bbdd-0ee6-4dc1-aec3-da17e420f347",
         "6b746217-6260-4b98-83bb-3bc85eca3c6d",
         "388b9087-fbfe-4e16-bd50-b64ce92f84b7",
-        "e6365f7f-a56f-480d-a1e4-6470a889a3d8"
+        "e6365f7f-a56f-480d-a1e4-6470a889a3d8",
+        "b51a752a-d55d-4e2d-8103-192f4da30e33",
+        "7697ebc7-1ae8-4415-9a63-d46109eacfa2",
+        "7ab2f713-fa68-42cf-b486-4030f09a66c8",
+        "6b75c01f-6c7b-43e1-a415-80b7fd0f9a08"
     ],
     "filterType": "GMScript",
     "folderName": "Books",

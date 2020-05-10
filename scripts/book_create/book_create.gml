@@ -24,6 +24,7 @@ with (_book)
 	
 	dataDownloadCurrent = array_create(_postPageCount + 1);
 	dataDownloadTotal		= array_create(_postPageCount + 1);
+	getPages = array_create(_postPageCount, -1);
 	pageUrls = array_create(_postPageCount);
 	for (var o = 0; o < _postPageCount; ++o)
 	    pageUrls[o] = book_get_url_page(_postMediaID, o);
