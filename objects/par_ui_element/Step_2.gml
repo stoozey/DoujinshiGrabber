@@ -23,6 +23,7 @@ if (isEntering)
 		default:	window_set_cursor(cr_handpoint); break;
 		
 		case obj_ui_textbox: window_set_cursor(cr_beam); break;
+		case obj_ui_label: break;
 	}
 	
 	event_user(UI_EVENT.ANIM_ENTER);
