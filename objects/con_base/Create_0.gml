@@ -1,5 +1,7 @@
 randomize();
 
+global.lowBandwidth = global.__cfgLowBandwidth;
+
 globalvar DIR_IMAGES;
 DIR_IMAGES = global.__cfgDirImages;
 

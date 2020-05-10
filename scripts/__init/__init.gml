@@ -105,7 +105,7 @@ else
 	global.__cfgHue =  clamp(save_get(CFG_HUE, 0, null, "number"), 0, 255);
 	global.__cfgTags =  save_get(CFG_TAGS, "", null, "string");
 	global.__cfgDirImages = save_get(CFG_DIR_SAVE, DIR_IMAGES_DEFAULT, null, "string");
-	global.__cfgLowBandwidth = save_get(CFG_LOW_BANDW, false, null, "bool");
+	global.__cfgLowBandwidth = bool(save_get(CFG_LOW_BANDW, 0, null, "number"));
 	
 	//var _w, _h;
 	//_w = clamp(save_get(CFG_WINDOW_W, WINDOW_W_MIN, null, "number"), WINDOW_W_MIN, display_get_width());
