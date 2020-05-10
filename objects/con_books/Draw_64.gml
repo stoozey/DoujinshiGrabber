@@ -62,7 +62,7 @@ switch (state)
 			{
 				var _thisBook, _cover, _title;
 				_thisBook	= book_get_container(i);
-				if (_thisBook == undefined) continue;
+				if (_thisBook == undefined) || (!instance_exists(_thisBook)) continue;
 			
 				_cover		= _thisBook.cover;
 				_title			= _thisBook.title;
@@ -220,7 +220,7 @@ else if (state == VIEW_STATE.BOOK_LIST) && (!listHasDeterminedPositions)
 		_pagesInRow++;
 		var _thisBook, _cover, _title;
 		_thisBook	= book_get_container(i);
-		if (_thisBook == undefined) continue;
+		if (_thisBook == undefined) || (!instance_exists(_thisBook)) continue;
 		
 		_cover		= _thisBook.cover;
 		_title			= _thisBook.title;

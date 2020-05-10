@@ -52,7 +52,7 @@ if (async_load[? "id"] == getCover)
 	_status = async_load[? "status"];
 	if (_status < 0)
 	{
-		debug("Book \"" + title + "\" had a problem downloading their cover.");
+		debug("Book \"" + title + "\" had a problem downloading the cover.");
 		book_delete(id);
 		exit;
 	}
