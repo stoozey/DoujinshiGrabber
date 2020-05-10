@@ -182,10 +182,24 @@ if (global.waiting)
 	
 	_text = "Loading...\n" + string(_percent) + "%";
 	
+	var _xx, _yy;
+	_xx	= WINDOW[X] / 2;
+	_yy	= WINDOW[Y] / 2;
 	draw_set_font(fnt_textbox);
+	var _w, _h;
+	_w	= string_width(_text) + 32;
+	_h	= string_height(_text) + 32;
+	draw_set_alpha(0.4);
+	draw_9slice(_xx - (_w / 2), _yy - (_h / 2), _w, _h, spr_9slice_button, 0, COL[colour.dark]);
+	draw_set_alpha(1);
+	
+	draw_set_colour(COL[colour.text]);
 	draw_set_align(fa_center, fa_middle);
-	draw_text(WINDOW[X] / 2, WINDOW[Y] / 2, _text);
+	draw_text(_xx, _yy, _text);
+	draw_set_colour(c_white);
 	draw_set_align(fa_left, fa_top);
+	
+
 	
 	alarm[0]		= room_speed * 2;
 	bookTitleX	= 0;
