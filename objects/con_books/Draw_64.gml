@@ -80,7 +80,7 @@ switch (state)
 				var _realY, _rect;
 				_realY	= _y + VIEW_Y - bookListScroll;
 				_rect		= [ _x, _realY, _x + _newSize[X], _realY + _newSize[Y] ];
-				if (collision_rectangle(_rect[0], _rect[1], _rect[2], _rect[3], cursor, false, true))
+				if (collision_rectangle(_rect[0], _rect[1], _rect[2], _rect[3], cursor, false, true)) && (mouse_y_gui > VIEW_Y)
 				{
 					book_scale_up(_thisBook);
 					if (mouse_check_button_pressed(mb_left)) && (bookSelected == noone)
@@ -116,7 +116,32 @@ switch (state)
 				_tY					= ((_y + _newSize[Y] - bookListScroll) * _scaleSelected) + _textOffset;
 				draw_text_wrapped(_title, _tX, _tY, _newSize[X] * _scaleSelected, 1, bookTitleX);
 			}
-			//bookPageHeight = max(_y - _lastSizeY, 0);
+			
+			var _surf, _surfW, _surfH,_barW, _barH, _barX, _barY, _isHoveringOnBar;
+			_surf		= _surfs[state];
+			_surfW	= surface_get_width(_surf);
+			_surfH	= surface_get_height(_surf);
+			_barW	= 18 * scrollbarScale;
+			_barH	= min(48, bookPageHeight - _surfH);
+			_barX		= _surfW - _barW;
+			_barY		= percent_amount(bookListScroll, bookPageHeight,_surfH - _barH, false);
+			
+			_isHoveringOnBar = (mouse_x_gui >= _barX - _barW) && (mouse_y_gui >= VIEW_Y)// && (mouse_y_gui <= _barY + _barH + VIEW_Y));
+			
+			scrollbarScale = Ease(scrollbarScale, ((_isHoveringOnBar) ? 1.5 : 1), 0.4, EaseInOutSine);
+			
+			if (_isHoveringOnBar) && (!global.waiting)
+			{
+				if (mouse_check_button(mb_left))
+				{
+					//var _mx;
+					//_mx = mouse_y_gui - VIEW_Y - _barY;
+					bookListScrollReal = clamp(percent_amount(mouse_y_gui - VIEW_Y, _surfH, bookPageHeight, false), 0,  bookPageHeight);
+				}
+			}
+			
+			draw_9slice(_barX, 0, _barW, _surfH, spr_9slice_scrollbar, 0, COL[colour.dark]);
+			draw_9slice(_barX, _barY, _barW, _barH, spr_9slice_scrollbar, 0,  ((_isHoveringOnBar) ? COL[colour.highlight] : COL[colour.normal]));
 		}
 	}break;
 	
@@ -276,7 +301,7 @@ else if (state == VIEW_STATE.BOOK_LIST) && (!listHasDeterminedPositions)
 			}
 		}
 	}
-	bookPageHeight = max(_y - _lastSizeY, 0);
+	bookPageHeight = max(_y - _lastSizeY - (VIEW_Y * 0.7), 0);
 	listHasDeterminedPositions = true;
 }
 #endregion

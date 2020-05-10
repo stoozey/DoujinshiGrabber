@@ -6,7 +6,7 @@ isEntering	= (collision_point(mouse_x_gui, mouse_y_gui, id, false, false));
 isLeaving		= (!isEntering);
 isPressing	= ((isEntering) && (mouse_check_button_pressed(mb_left)));
 
-if (isPressing)
+if (isPressing) && (object_index != obj_ui_label)
 {
 	cursor.selection = id;
 	

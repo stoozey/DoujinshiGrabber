@@ -951,6 +951,14 @@
             }
         },
         {
+            "Key": "57c89a6b-398b-4d1c-b467-2599f46501c7",
+            "Value": {
+                "id": "6384d499-1341-416d-9ab9-01aa0a1b9a86",
+                "resourcePath": "sprites\\spr_9slice_scrollbar\\spr_9slice_scrollbar.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "57da077b-d864-4d12-a3c9-139197299f18",
             "Value": {
                 "id": "acefc037-d156-40de-bd93-24dc8bb0603d",

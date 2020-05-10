@@ -20,6 +20,7 @@ bookTweenTime = room_speed * 10;
 bookTitleX	= 0;
 alarm[0] = bookTweenTime + room_speed;
 
+scrollbarScale = 1;
 
 pagesTotal		= 0;
 pagesLoaded	= 0;
