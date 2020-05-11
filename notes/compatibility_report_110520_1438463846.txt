@@ -1,0 +1,2 @@
+Converting GML script: ${project_dir}\objects\obj_example\Step_0.gml
+Converted string - line 5: "C:\" -> "C:\\"

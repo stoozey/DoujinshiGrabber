@@ -73,6 +73,20 @@
             "value": "0",
             "varName": "isBandwidth",
             "varType": 3
+        },
+        {
+            "id": "2443035f-fd3b-4e08-8aeb-f0abb2529dd5",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "isDir",
+            "varType": 3
         }
     ],
     "solid": false,

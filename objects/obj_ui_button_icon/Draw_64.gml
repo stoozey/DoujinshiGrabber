@@ -22,3 +22,11 @@ var _index;
 _index = (isBandwidth) ? global.lowBandwidth : 0;
 
 draw_sprite_ext(uiSprite, _index, _spritePos[X], _spritePos[Y], _spriteScale[X], _spriteScale[Y], 0, COL[colour.highlight], 1);
+
+if (isDir)
+{
+	var _tickIndex;
+	_tickIndex = (get_image_dir() != DIR_IMAGES_DEFAULT) ? 1 : 0;
+	
+	draw_sprite_ext(spr_yesno, _tickIndex, _pos[X] +_scale[X],_pos[Y] + _scale[Y], 1, 1, 0, COL[colour.text], 1);
+}

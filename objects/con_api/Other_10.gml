@@ -9,3 +9,5 @@ var _url;
 _url	= API_URL_SEARCH + "pid=" + string(global.pageNum) + "&query=" +  global.tags;
 getSearch = http_get(_url);
 debug("started search for query: " + global.tags + " ~ URL: " + _url);
+
+get_image_dir(true);

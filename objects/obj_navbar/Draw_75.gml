@@ -1,3 +1,6 @@
+if (introAlpha > 0)
+	draw_sprite_ext(spr_pixel, 0, 0, 0, WINDOW[X], WINDOW[Y], 0, COL[colour.darkest], introAlpha);
+
 draw_9slice(0, 0, WINDOW[X], NAVBAR_HEIGHT, spr_9slice_navbar, 0, COL[colour.dark]);
 
 draw_set_font(fnt_title);

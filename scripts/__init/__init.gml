@@ -100,7 +100,7 @@ else
 ////	@2.3 : UNCOMMENT CODE
 ////	defaults
 
-#macro DIR_IMAGES_DEFAULT ("images\\")
+#macro DIR_IMAGES_DEFAULT ("books\\")
 
 ////	saved stuff
 //try
