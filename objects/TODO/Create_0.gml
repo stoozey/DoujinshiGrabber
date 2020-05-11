@@ -1,5 +1,7 @@
 /*
 
-impliment book viewing state
+impliment book viewing state:
 
-add ui for changing page number
+if a tween exists, draw both surfaces, book pages at booklistx + width
+
+book pages are based on objects which are drawn at xstart + surface X
