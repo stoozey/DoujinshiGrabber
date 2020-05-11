@@ -192,6 +192,8 @@ switch (state)
 					global.pageNum = min(global.pageNum + 1, global.pageMax);
 					_switchingPage = true;
 				}
+				
+				
 			}
 			
 			#endregion
@@ -364,7 +366,7 @@ else if (state == VIEW_STATE.BOOK_LIST) && (!listHasDeterminedPositions)
 			}
 			
 			_x	= _offset[X];
-			_y	+= _newSize[Y] + _offset[Y];
+			_y	+= _lastSizeY + _offset[Y];
 			_lastSizeY = 0;
 			_pagesInRow = 1;
 		}
