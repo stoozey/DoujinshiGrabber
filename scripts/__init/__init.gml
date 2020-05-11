@@ -105,7 +105,7 @@ else
 ////	saved stuff
 //try
 //{
-	global.__cfgHue =  clamp(save_get(CFG_HUE, 0, null, "number"), 0, 255);
+	global.__cfgHue =  clamp(save_get(CFG_HUE, 214, null, "number"), 0, 255);
 	global.__cfgTags =  save_get(CFG_TAGS, "", null, "string");
 	global.__cfgDirImages = save_get(CFG_DIR_SAVE, DIR_IMAGES_DEFAULT, null, "string");
 	global.__cfgLowBandwidth = bool(save_get(CFG_LOW_BANDW, 0, null, "number"));
@@ -120,7 +120,7 @@ else
 //catch (e)
 //{
 	
-//	global.__cfgHue			= 0;
+//	global.__cfgHue			= 214;
 //	global.__cfgTags			= "";
 //	global.__cfgDirImages	= DIR_IMAGES_DEFAULT;
 //	global.__cfgLowBandwidth = false;

@@ -307,7 +307,7 @@ else if (state == VIEW_STATE.BOOK_LIST) && (!listHasDeterminedPositions)
 			}
 		}
 	}
-	bookPageHeight = max(_y - _lastSizeY - (VIEW_Y * 0.7), 0);
+	bookPageHeight = max(_y - _lastSizeY - (VIEW_Y * 0.6), 0);
 	listHasDeterminedPositions = true;
 }
 #endregion
