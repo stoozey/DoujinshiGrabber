@@ -68,7 +68,7 @@ global.downloading	= false;	//	if we are downloading content
 global.waiting				= false;	//	if we are waiting for scontent to be processed
 
 globalvar DIR_TEMP;
-DIR_TEMP = (temp_directory + "\\dojinshigrabber\\books\\");
+DIR_TEMP = (temp_directory + "\\doujinshigrabber\\books\\");
 
 globalvar BOOK_LIST;
 BOOK_LIST = ds_list_create();

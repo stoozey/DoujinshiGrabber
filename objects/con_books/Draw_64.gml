@@ -83,6 +83,10 @@ switch (state)
 				if (collision_rectangle(_rect[0], _rect[1], _rect[2], _rect[3], cursor, false, true)) && (mouse_y_gui > VIEW_Y)
 				{
 					book_scale_up(_thisBook);
+					
+					if (!global.waiting)
+						window_set_cursor(cr_handpoint);
+					
 					if (mouse_check_button_pressed(mb_left)) && (bookSelected == noone)
 					{
 						//	fade out to next state: viewing book

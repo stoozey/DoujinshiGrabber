@@ -6,7 +6,11 @@ isEntering	= (collision_point(mouse_x_gui, mouse_y_gui, id, false, false));
 isLeaving		= (!isEntering);
 isPressing	= ((isEntering) && (mouse_check_button_pressed(mb_left)));
 
-if (isPressing) && (object_index != obj_ui_label)
+var _labelCheck;
+_labelCheck = (object_index == obj_ui_label);
+_labelCheck = (_labelCheck) ? isLink : true;
+
+if (isPressing) && (_labelCheck)
 {
 	cursor.selection = id;
 	
@@ -23,7 +27,7 @@ if (isEntering)
 		default:	window_set_cursor(cr_handpoint); break;
 		
 		case obj_ui_textbox: window_set_cursor(cr_beam); break;
-		case obj_ui_label: break;
+		case obj_ui_label: if (isLink) window_set_cursor(cr_handpoint); break;
 	}
 	
 	event_user(UI_EVENT.ANIM_ENTER);
