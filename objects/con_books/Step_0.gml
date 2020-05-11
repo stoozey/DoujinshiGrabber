@@ -12,7 +12,17 @@ switch (state)
 			bookListScrollReal = clamp(bookListScrollReal, 0, bookPageHeight);
 		}
 		else
+		{
+			var _checkForCompletion;
+			_checkForCompletion = global.waiting;
+			
 			global.waiting = (pagesLoaded < pagesTotal);
+			
+			if (_checkForCompletion) && (!global.waiting)
+			{
+				
+			}
+		}
 		
 		bookListScroll = Ease(bookListScroll, bookListScrollReal, 0.25, EaseInOutSine);
 	}break;
