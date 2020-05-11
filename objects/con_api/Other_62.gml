@@ -17,7 +17,7 @@ if (async_load[? "id"] == getSearch)
 				_totalPages			= _result[? "num_pages"];
 				_postsPerPage	= _result[? "per_page"];
 				
-				if (_postList == null)
+				if (_postList == null) || (ds_list_empty(_postList))
 				{
 					show_message(ERROR_MSG_GRAB_FAIL);
 					global.waiting = false;
@@ -48,7 +48,7 @@ if (async_load[? "id"] == getSearch)
 					book_create(i, _postTitle, _postMediaID, _postBookID, _postPageCount);
 				}
 				debug( "found " + string(_totalBooks) + " posts, out of " + string(_totalPages) + " total." );
-				global.pageMax = ceil(_totalPages / _totalBooks);
+				global.pageMax = _totalPages;
 				debug("page count: " + string(global.pageMax) );
 				
 				//	give book controller info for drawing

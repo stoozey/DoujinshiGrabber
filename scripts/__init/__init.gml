@@ -48,7 +48,7 @@ gml_pragma("global", "__init()");
 
 
 var _hello;
-_hello = "HELLO THERE! I see you like reading decompiled code. How is that going for you? Have you found anything cool? Probably not. Anyway, download jOeSU at https://stoozey.itch.io/joesu..... JUST KIDDING! You don't have to... unless... maybe... y-you will...?"
+_hello = "HELLO THERE! I see you like reading decompiled code. How is that going for you? Have you found anything cool? Probably not. Anyway, follow me on twitter @stoozey_ ..... JUST KIDDING! You don't have to... unless... maybe... y-you will...?"
 
 globalvar WINDOW;
 WINDOW = [ window_get_width(), window_get_height() ];

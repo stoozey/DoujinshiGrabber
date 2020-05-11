@@ -16,8 +16,8 @@ API_URL_IMAGE					= (global.lowBandwidth) ? _API_URL_IMAGE_LOW : _API_URL_IMAGE;
 API_URL_IMAGE_FILE_EXT	= (global.lowBandwidth) ? _API_URL_IMAGE_FILE_EXT_LOW : _API_URL_IMAGE_FILE_EXT;
 
 global.tags				= global.__cfgTags;
-global.pageNum	= 0;
-global.pageMax		= 0;
+global.pageNum	= 1;
+global.pageMax		= 1;
 
 dataDownloadCurrent	= 1;	//	how much data we have downloaded out of the total
 dataDownloadTotal			= 1;	//	the total amount of data to be downloaded

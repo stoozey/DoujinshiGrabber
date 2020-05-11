@@ -34,9 +34,13 @@ switch (state)
 var _surfs;
 _surfs = [ surfBookList, surfBookPages ];
 
+var _switchingPage;
+_switchingPage = false;
+
 surface_set_target(_surfs[state]);
 
-draw_clear_alpha(c_white, 0);
+//	fill bg with colour
+draw_sprite_ext(spr_pixel, 0, 0, 0, WINDOW[X], WINDOW[Y], 0, COL[colour.darkest], 1);
 
 if (global.waiting)
 {
@@ -53,6 +57,25 @@ switch (state)
 	{
 		if (listHasDeterminedPositions)
 		{
+			
+			#region footer variables
+			
+			var _footerW, _footerH, _footerX, _footerY;
+			_footerW	=156;
+			_footerH	= 48;
+			_footerX	= (WINDOW[X] / 2) - (_footerW / 2);
+			_footerY	= WINDOW[Y] - VIEW_Y - _footerH;
+			
+			var _isHoveringOnFooter, _footerBtnW, _footerHoveringBack, _footerHoveringNext;
+			_isHoveringOnFooter	= (mouse_y_gui >= WINDOW[Y] - _footerH) && ((mouse_x_gui >= _footerX) && (mouse_x_gui <= _footerX + _footerW));
+			draw_set_font(fnt_textbox);
+			_footerBtnW					= string_width("<<");
+			_footerHoveringBack	= (_isHoveringOnFooter) && (mouse_x_gui <= _footerX + _footerBtnW);
+			_footerHoveringNext	= (_isHoveringOnFooter) && (mouse_x_gui >= _footerX + _footerW - _footerBtnW);
+			
+			#endregion
+			
+			#region book list
 			var _x, _y;
 			_x			= 0;
 			_y			= 0;
@@ -71,16 +94,16 @@ switch (state)
 				var _size,_newSize;
 				_size		= [ sprite_get_width(_cover), sprite_get_height(_cover) ];
 				_x			= book_get_x(i);
-				_y			= book_get_y(i);
+				_y			= book_get_y(i) - bookListScroll;
 				_scale	= book_get_scale(i);
 
 				_newSize = [ (_size[X] * _scale), (_size[Y] * _scale) ];
 			
 				//	intereacting with books
 				var _realY, _rect;
-				_realY	= _y + VIEW_Y - bookListScroll;
+				_realY	= _y + VIEW_Y;
 				_rect		= [ _x, _realY, _x + _newSize[X], _realY + _newSize[Y] ];
-				if (collision_rectangle(_rect[0], _rect[1], _rect[2], _rect[3], cursor, false, true)) && (mouse_y_gui > VIEW_Y)
+				if (!_isHoveringOnFooter) &&  (mouse_y_gui > VIEW_Y) &&(collision_rectangle(_rect[0], _rect[1], _rect[2], _rect[3], cursor, false, true))
 				{
 					book_scale_up(_thisBook);
 					
@@ -112,15 +135,68 @@ switch (state)
 			
 				_scale *= _scaleSelected;
 			
-				draw_sprite_ext(_cover, 0, _x, _y - bookListScroll, _scale, _scale, 0, c_white, 1);
+				draw_sprite_ext(_cover, 0, _x, _y, _scale, _scale, 0, c_white, 1);
 			
 				var _textOffset, _tX, _tY;
 				_textOffset	= 4;
 				_tX					= _x - 8;
-				_tY					= ((_y + _newSize[Y] - bookListScroll) * _scaleSelected) + _textOffset;
+				_tY					= ((_y + _newSize[Y]) * _scaleSelected) + _textOffset;
 				draw_text_wrapped(_title, _tX, _tY, _newSize[X] * _scaleSelected, 1, bookTitleX);
 			}
+			#endregion
 			
+			#region footer interaction
+			draw_9slice(_footerX, _footerY, _footerW, _footerH + 16, spr_9slice_button, 0, COL[colour.dark]);
+			
+			var _buff, _canGoBack, _canGoNext;
+			_buff	= 10;
+			_canGoBack = (global.pageNum > 1);
+			_canGoNext = (global.pageNum < global.pageMax)
+			
+			#region draw footer text
+			draw_set_font(fnt_textbox);
+			draw_set_colour(COL[colour.text]);
+			draw_set_alpha(0.8);
+			
+			if (!_canGoBack)
+				draw_set_alpha(0.5);
+			else if (_footerHoveringBack)
+				draw_set_alpha(1);
+			draw_text(_footerX + _buff, _footerY, "<");
+			draw_set_alpha(0.8);
+			
+			draw_set_halign(fa_center);
+				draw_text(_footerX + (_footerW / 2), _footerY, string(global.pageNum));
+			
+			if (!_canGoNext)
+				draw_set_alpha(0.5);
+			else if (_footerHoveringNext)
+				draw_set_alpha(1);
+			draw_set_halign(fa_right);
+				draw_text(_footerX + _footerW - _buff, _footerY, ">");
+			draw_set_halign(fa_left);
+			
+			draw_set_alpha(1);
+			draw_set_colour(c_white);
+			#endregion
+			
+			if (_isHoveringOnFooter) && (mouse_check_button_pressed(mb_left))
+			{
+				if (_footerHoveringBack) && (_canGoBack)
+				{
+					global.pageNum = max(global.pageNum - 1, 1);
+					_switchingPage = true;
+				}
+				else if (_footerHoveringNext) && (_canGoNext)
+				{
+					global.pageNum = min(global.pageNum + 1, global.pageMax);
+					_switchingPage = true;
+				}
+			}
+			
+			#endregion
+			
+			#region scrollbar
 			var _surf, _surfW, _surfH,_barW, _barH, _barX, _barY, _isHoveringOnBar;
 			_surf		= _surfs[state];
 			_surfW	= surface_get_width(_surf);
@@ -146,6 +222,7 @@ switch (state)
 			
 			draw_9slice(_barX, 0, _barW, _surfH, spr_9slice_scrollbar, 0, COL[colour.dark]);
 			draw_9slice(_barX, _barY, _barW, _barH, spr_9slice_scrollbar, 0,  ((_isHoveringOnBar) ? COL[colour.highlight] : COL[colour.normal]));
+			#endregion
 		}
 	}break;
 	
@@ -160,7 +237,11 @@ if (shader_current() != -1)
 
 surface_reset_target();
 
-draw_surface(surfBookList, 0, VIEW_Y);
+draw_surface(_surfs[state], 0, VIEW_Y);
+
+if (_switchingPage)
+	btn_search_api(true);
+
 // loading text
 if (global.waiting)
 {
@@ -307,7 +388,9 @@ else if (state == VIEW_STATE.BOOK_LIST) && (!listHasDeterminedPositions)
 			}
 		}
 	}
-	bookPageHeight = max(_y - _lastSizeY - (VIEW_Y * 0.6), 0);
+	var _footerBuffer;
+	_footerBuffer =  48;
+	bookPageHeight = max(_y - _lastSizeY - (VIEW_Y * 0.6) + _footerBuffer, 0);
 	listHasDeterminedPositions = true;
 }
 #endregion
