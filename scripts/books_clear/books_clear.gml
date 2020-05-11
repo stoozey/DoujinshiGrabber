@@ -31,4 +31,10 @@ with (con_books)
 	bookListScroll				= 0;
 	bookListScrollReal	= 0;
 	listHasDeterminedPositions = false;
+	
+	if (surface_exists(surfBookList))
+		surface_free(surfBookList);
+	
+	if (surface_exists(surfBookPages))
+		surface_free(surfBookPages);
 }
