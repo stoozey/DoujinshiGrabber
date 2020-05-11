@@ -4,8 +4,21 @@ for (var i = 0; i < _size; ++i)
 {
 	var _thisBook;
 	_thisBook = book_get_container(i);
-	instance_deactivate_object(_thisBook);
-    instance_destroy(_thisBook);
+	
+	with (_thisBook)
+	{
+		if (sprite_exists(cover))
+			sprite_delete(cover);
+		
+		var _totalPages;
+		_totalPages = array_length_1d(pages);
+		for (var o = 0; o < _totalPages; ++o)
+		{
+		    if (sprite_exists(pages[o]))
+				sprite_delete(pages[o]);
+		}
+		instance_destroy();
+	}
 }
 ds_list_clear(BOOK_LIST);
 
