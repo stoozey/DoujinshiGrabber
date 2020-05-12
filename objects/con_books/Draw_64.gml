@@ -72,7 +72,7 @@ switch (state)
 			_footerBtnW					= string_width("<<");
 			_footerHoveringBack	= (_isHoveringOnFooter) && (mouse_x_gui <= _footerX + _footerBtnW);
 			_footerHoveringNext	= (_isHoveringOnFooter) && (mouse_x_gui >= _footerX + _footerW - _footerBtnW);
-			
+
 			#endregion
 			
 			#region book list
@@ -148,36 +148,47 @@ switch (state)
 			#region footer interaction
 			draw_9slice(_footerX, _footerY, _footerW, _footerH + 16, spr_9slice_button, 0, COL[colour.dark]);
 			
-			var _buff, _canGoBack, _canGoNext;
+			var _buff, _canGoBack, _canGoNext, _footerTY;
 			_buff	= 10;
 			_canGoBack = (global.pageNum > 1);
 			_canGoNext = (global.pageNum < global.pageMax)
+			_footerTY = _footerY + (_footerH / 2);
 			
 			#region draw footer text
 			draw_set_font(fnt_textbox);
 			draw_set_colour(COL[colour.text]);
 			draw_set_alpha(0.8);
+			draw_set_valign(fa_middle);
 			
 			if (!_canGoBack)
 				draw_set_alpha(0.5);
-			else if (_footerHoveringBack)
-				draw_set_alpha(1);
-			draw_text(_footerX + _buff, _footerY, "<");
+			else
+			{
+				if (_footerHoveringBack)
+					draw_set_alpha(1);
+				footerBackNextScale[0] = Ease(footerBackNextScale[0], 1 + (_footerHoveringBack / 7), 0.4, EaseInOutSine);
+			}
+			draw_text_transformed(_footerX + _buff, _footerTY, "<", footerBackNextScale[0], footerBackNextScale[0], 0);
 			draw_set_alpha(0.8);
 			
 			draw_set_halign(fa_center);
-				draw_text(_footerX + (_footerW / 2), _footerY, string(global.pageNum));
+				draw_text(_footerX + (_footerW / 2), _footerTY, string(global.pageNum));
 			
 			if (!_canGoNext)
 				draw_set_alpha(0.5);
-			else if (_footerHoveringNext)
-				draw_set_alpha(1);
+			else
+			{
+				 if (_footerHoveringNext)
+					draw_set_alpha(1);
+				footerBackNextScale[1] = Ease(footerBackNextScale[1], 1 + (_footerHoveringNext / 7), 0.4, EaseInOutSine);
+			}
 			draw_set_halign(fa_right);
-				draw_text(_footerX + _footerW - _buff, _footerY, ">");
-			draw_set_halign(fa_left);
+				draw_text_transformed(_footerX + _footerW - _buff, _footerTY, ">", footerBackNextScale[1], footerBackNextScale[1], 0);
 			
 			draw_set_alpha(1);
 			draw_set_colour(c_white);
+			draw_set_halign(fa_left);
+			draw_set_valign(fa_top);
 			#endregion
 			
 			if (_isHoveringOnFooter) && (mouse_check_button_pressed(mb_left))

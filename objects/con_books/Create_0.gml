@@ -30,4 +30,6 @@ pagesLoaded	= 0;
 downloadAnim = 0;
 alarm[1] = 1;
 
+footerBackNextScale = [ 1, 1 ];
+
 listHasDeterminedPositions = false;
