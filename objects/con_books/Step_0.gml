@@ -18,9 +18,12 @@ switch (state)
 			
 			global.waiting = (pagesLoaded < pagesTotal);
 			
+			//	tween x to move book pages into view
 			if (_checkForCompletion) && (!global.waiting)
 			{
-				
+				bookListSurfXTween = TweenFire(
+					id, EaseInBack, 0, 1, 0, 0.4, "bookListSurfX", 0, -WINDOW[X]
+				);
 			}
 		}
 		

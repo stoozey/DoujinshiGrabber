@@ -1,9 +1,8 @@
 ///@desc get pages
 global.waiting = true;
-var _totalPages;
-_totalPages = array_length_1d(pageUrls);
-con_books.pagesTotal = _totalPages;
-for (var i = 0; i < _totalPages; ++i)
+
+con_books.pagesTotal = totalPages;
+for (var i = 0; i < totalPages; ++i)
 {
     var _dest;
 	_dest = book_dir_get_page(id, i, true);

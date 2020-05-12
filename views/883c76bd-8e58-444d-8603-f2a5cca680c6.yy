@@ -8,7 +8,8 @@
         "7b140055-e44b-402d-b936-1ed76b777dd6",
         "a1cfb75c-093a-4ae3-b47e-3904488d6031",
         "351ecc82-4792-4193-ac85-29032d33ab06",
-        "a3f2fbb1-e58c-477a-a0c7-f2ac44b7b934"
+        "a3f2fbb1-e58c-477a-a0c7-f2ac44b7b934",
+        "d011bc37-e555-4ab3-acab-b5e1ecbb2b2c"
     ],
     "filterType": "GMSprite",
     "folderName": "Dev",

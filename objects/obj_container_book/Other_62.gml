@@ -1,6 +1,4 @@
-var _totalPages;
-_totalPages = array_length_1d(pageUrls);
-for (var i = 0; i < _totalPages; ++i)
+for (var i = 0; i < totalPages; ++i)
 {
 	if (async_load[? "id"] == getPages[i])
 	{

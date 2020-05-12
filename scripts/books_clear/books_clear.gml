@@ -10,9 +10,7 @@ for (var i = 0; i < _size; ++i)
 		if (sprite_exists(cover))
 			sprite_delete(cover);
 		
-		var _totalPages;
-		_totalPages = array_length_1d(pages);
-		for (var o = 0; o < _totalPages; ++o)
+		for (var o = 0; o < totalPages; ++o)
 		{
 		    if (sprite_exists(pages[o]))
 				sprite_delete(pages[o]);

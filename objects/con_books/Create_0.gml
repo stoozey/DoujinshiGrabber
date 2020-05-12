@@ -1,12 +1,14 @@
 uData = shader_get_uniform(shd_blur_gaussian, "size");
 shaderRadius = 0;
+shaderRadiusTween = TweenNull();
 
 enum VIEW_STATE { BOOK_LIST, BOOK_PAGES, NULL };
 state						= VIEW_STATE.NULL;
 surfBookList		= -1;	//	the surface containing the list of all search results
 surfBookPages	= -1;	//	the surface containing the selected book and its appropriate page
 
-surfTween = TweenNull();
+bookListSurfXTween = TweenNull();
+bookListSurfX = 0;
 
 bookListScroll				= 0;
 bookListScrollReal	= 0;

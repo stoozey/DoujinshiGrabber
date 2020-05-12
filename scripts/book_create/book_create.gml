@@ -22,12 +22,16 @@ with (_book)
 	bookID		= _postBookID;
 	coverUrl	= book_get_url_cover(_postMediaID);
 	
-	dataDownloadCurrent = array_create(_postPageCount + 1);
-	dataDownloadTotal		= array_create(_postPageCount + 1);
-	getPages = array_create(_postPageCount, -1);
-	pageUrls = array_create(_postPageCount);
-	for (var o = 0; o < _postPageCount; ++o)
+	totalPages = _postPageCount;
+	
+	dataDownloadCurrent = array_create(totalPages + 1);
+	dataDownloadTotal		= array_create(totalPages + 1);
+	getPages = array_create(totalPages, -1);
+	pageUrls = array_create(totalPages);
+	for (var o = 0; o < totalPages; ++o)
 	    pageUrls[o] = book_get_url_page(_postMediaID, o);
+	
+	pages = array_create(totalPages);
 	
 	event_user(0);
 }

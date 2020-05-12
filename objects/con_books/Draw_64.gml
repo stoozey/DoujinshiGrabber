@@ -42,7 +42,7 @@ surface_set_target(_surfs[state]);
 //	fill bg with colour
 draw_sprite_ext(spr_pixel, 0, 0, 0, WINDOW[X], WINDOW[Y], 0, COL[colour.darkest], 1);
 
-if (global.waiting)
+if (global.waiting) || (TweenExists(bookListSurfXTween)) || (TweenExists(shaderRadiusTween))
 {
 	shader_set(shd_blur_gaussian)
 	shader_set_uniform_f(uData, WINDOW[X]/2,WINDOW[Y]/2, shaderRadius)//width,height,radius
@@ -75,7 +75,7 @@ switch (state)
 
 			#endregion
 			
-			#region book list
+			#region draw main book list
 			var _x, _y;
 			_x			= 0;
 			_y			= 0;
@@ -121,7 +121,7 @@ switch (state)
 								event_user(1);
 						}
 						bookSelected = _thisBook;
-						TweenFire(id, EaseOutSine, 0, 1, 0, 0.65, "shaderRadius", 0, 12);
+						shaderRadiusTween = TweenFire(id, EaseOutSine, 0, 1, 0, 0.65, "shaderRadius", 0, 12);
 						global.waiting = true;
 					}
 				}	
@@ -250,7 +250,7 @@ if (shader_current() != -1)
 
 surface_reset_target();
 
-draw_surface(_surfs[state], 0, VIEW_Y);
+draw_surface(_surfs[state], bookListSurfX, VIEW_Y);
 
 if (_switchingPage)
 	btn_search_api(true);
@@ -279,9 +279,7 @@ if (global.waiting)
 		{
 			with (bookSelected)
 			{
-				var _totalPages;
-				_totalPages = array_length_1d(pageUrls);
-				for (var i = 0; i < _totalPages; ++i) 
+				for (var i = 0; i < totalPages; ++i) 
 				{
 					var _i, _tot, _cur;
 					_i			= (i + 1);
