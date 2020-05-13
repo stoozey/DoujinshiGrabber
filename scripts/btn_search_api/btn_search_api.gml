@@ -1,4 +1,7 @@
 ///@arg [dont_reset_pagenum]
+
+if (con_books.bookListSurfX != 0) exit;
+
 var _dontReset;
 _dontReset = (argument_count > 0) ? argument[0] : false;
 
