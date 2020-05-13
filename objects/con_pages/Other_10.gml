@@ -15,3 +15,5 @@ totalPages = _totalPages;
 
 pageIndex			= 0;
 pageIndexReal	= 0;
+
+event_user(3);
