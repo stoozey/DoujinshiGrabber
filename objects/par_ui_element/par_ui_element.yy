@@ -183,6 +183,20 @@
             "varType": 3
         },
         {
+            "id": "7246e508-101e-4f89-99c5-160fc315bd48",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "uiOffset",
+            "varType": 3
+        },
+        {
             "id": "87a740c3-3fdd-45c7-b6b6-5072c7ad913a",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",

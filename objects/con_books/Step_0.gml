@@ -22,8 +22,9 @@ switch (state)
 			if (_checkForCompletion) && (!global.waiting)
 			{
 				bookListSurfXTween = TweenFire(
-					id, EaseInBack, 0, 1, 0, 0.4, "bookListSurfX", 0, -WINDOW[X]
+					id, EaseInOutCubic, 0, 1, 0, 0.7, "bookListSurfX", bookListSurfX, -WINDOW[X]
 				);
+				TweenAddCallbackUser(bookListSurfXTween, TWEEN_EV_FINISH, id, 2);
 			}
 		}
 		

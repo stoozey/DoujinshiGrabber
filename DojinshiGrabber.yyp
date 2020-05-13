@@ -479,6 +479,14 @@
             }
         },
         {
+            "Key": "2a7dd390-747e-4477-bd66-df7ba2f23a5b",
+            "Value": {
+                "id": "87f524f8-db52-4eba-9272-fc4052f6e7ad",
+                "resourcePath": "scripts\\btn_exit_book_pages\\btn_exit_book_pages.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "2befc192-a5ba-4ea5-aa1f-5df90217ce5f",
             "Value": {
                 "id": "93c6f74f-0235-430c-9363-6388ae094f14",
@@ -780,6 +788,14 @@
                 "id": "b8de854d-4072-4ede-9038-3e8b551b5c1b",
                 "resourcePath": "scripts\\TweenFire\\TweenFire.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "4bbad346-4b81-441c-ab2a-81e00575c055",
+            "Value": {
+                "id": "4e6271b0-67b5-4d5a-8551-56da76169c0b",
+                "resourcePath": "sprites\\spr_arrow\\spr_arrow.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1919,6 +1935,14 @@
             }
         },
         {
+            "Key": "a3adf0fb-346c-462a-92ca-38df1ca21806",
+            "Value": {
+                "id": "4c8d128b-a331-4908-ae25-03b8b3119175",
+                "resourcePath": "sprites\\spr_arrow_l\\spr_arrow_l.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a3f2fbb1-e58c-477a-a0c7-f2ac44b7b934",
             "Value": {
                 "id": "5eaa5192-f4fb-4c44-aa41-6de51a9810a4",
@@ -1996,6 +2020,14 @@
                 "id": "74f1d281-6a7c-4856-8b50-a5b12c4e598b",
                 "resourcePath": "scripts\\TPList\\TPList.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "ab9be184-e431-439d-bad6-8bfeccbb9bc1",
+            "Value": {
+                "id": "90510f65-7780-4f38-a32f-d1de84eadaee",
+                "resourcePath": "sprites\\spr_arrow_return\\spr_arrow_return.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -3076,6 +3108,7 @@
         "679a2e68-cdbe-46d3-a194-97276bc9a568",
         "c4259958-298c-4170-b9e3-a62901faa43f",
         "59601887-0cba-4e78-8357-8e3927e86c21",
+        "2a7dd390-747e-4477-bd66-df7ba2f23a5b",
         "a66f6960-72ec-40a3-8a91-37433cbc7e21",
         "6f5b0f7b-b558-42c3-af19-2cf4873aeb45",
         "8fde8f7f-7a54-4493-a934-08f7fdef6b84",

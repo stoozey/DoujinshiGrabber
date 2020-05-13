@@ -3,41 +3,25 @@ _surfExists	= [  (surface_exists(surfBookList)),  (surface_exists(surfBookPages)
 
 if (state == VIEW_STATE.NULL)
 {
-	if (_surfExists[VIEW_STATE.BOOK_PAGES])
-			surface_free(surfBookPages);	
-	if (_surfExists[VIEW_STATE.BOOK_LIST])
+	if (surface_exists(surfBookList))
 			surface_free(surfBookList);	
 	exit;
 }
 
+if (bookListSurfX == -WINDOW[X]) exit;
+
 #region	create/destroy surfaces
-switch (state)
-{
-	case VIEW_STATE.BOOK_LIST:
-	{
-		if (!_surfExists[VIEW_STATE.BOOK_LIST])
-			surfBookList = surface_create( WINDOW[X], WINDOW[Y] - VIEW_Y);
-		if (_surfExists[VIEW_STATE.BOOK_PAGES])
-			surface_free(surfBookPages);	
-	}break;
-	
-	case VIEW_STATE.BOOK_PAGES:
-	{
-		if (!_surfExists[VIEW_STATE.BOOK_PAGES])
-			surfBookPages = surface_create( WINDOW[X], WINDOW[Y] - VIEW_Y);
-		if (_surfExists[VIEW_STATE.BOOK_LIST])
-			surface_free(surfBookList);	
-	}break;
-}
+
+if (!surface_exists(surfBookList))
+	surfBookList = surface_create( WINDOW[X], WINDOW[Y] - VIEW_Y);
+
 #endregion
 
-var _surfs;
-_surfs = [ surfBookList, surfBookPages ];
-
-var _switchingPage;
+var _switchingPage, _stateActive;
 _switchingPage = false;
+_stateActive = (state == VIEW_STATE.BOOK_LIST);
 
-surface_set_target(_surfs[state]);
+surface_set_target(surfBookList);
 
 //	fill bg with colour
 draw_sprite_ext(spr_pixel, 0, 0, 0, WINDOW[X], WINDOW[Y], 0, COL[colour.darkest], 1);
@@ -51,14 +35,10 @@ if (global.waiting) || (TweenExists(bookListSurfXTween)) || (TweenExists(shaderR
 var _distanceBetweenEdge;
 _distanceBetweenEdge = 0;
 
-switch (state)
+if (listHasDeterminedPositions)
 {
-	case VIEW_STATE.BOOK_LIST:
-	{
-		if (listHasDeterminedPositions)
-		{
-			
-			#region footer variables
+	
+	#region footer variables
 			
 			var _footerW, _footerH, _footerX, _footerY;
 			_footerW	=156;
@@ -74,8 +54,8 @@ switch (state)
 			_footerHoveringNext	= (_isHoveringOnFooter) && (mouse_x_gui >= _footerX + _footerW - _footerBtnW);
 
 			#endregion
-			
-			#region draw main book list
+	
+	#region draw main book list
 			var _x, _y;
 			_x			= 0;
 			_y			= 0;
@@ -103,31 +83,34 @@ switch (state)
 				var _realY, _rect;
 				_realY	= _y + VIEW_Y;
 				_rect		= [ _x, _realY, _x + _newSize[X], _realY + _newSize[Y] ];
-				if (!_isHoveringOnFooter) &&  (mouse_y_gui > VIEW_Y) &&(collision_rectangle(_rect[0], _rect[1], _rect[2], _rect[3], cursor, false, true))
+				if (_stateActive)
 				{
-					book_scale_up(_thisBook);
-					
-					if (!global.waiting)
-						window_set_cursor(cr_handpoint);
-					
-					if (mouse_check_button_pressed(mb_left)) && (bookSelected == noone)
+					if (!_isHoveringOnFooter) &&  (mouse_y_gui > VIEW_Y) &&(collision_rectangle(_rect[0], _rect[1], _rect[2], _rect[3], cursor, false, true))
 					{
-						//	fade out to next state: viewing book
-						with (obj_container_book)
+						book_scale_up(_thisBook);
+					
+						if (!global.waiting)
+							window_set_cursor(cr_handpoint);
+					
+						if (mouse_check_button_pressed(mb_left)) && (bookSelected == noone)
 						{
-							if (id != _thisBook)
-								book_scale_down(id)
-							else
-								event_user(1);
+							//	fade out to next state: viewing book
+							with (obj_container_book)
+							{
+								if (id != _thisBook)
+									book_scale_down(id)
+								else
+									event_user(1);
+							}
+							bookSelected = _thisBook;
+							shaderRadiusTween = TweenFire(id, EaseOutSine, 0, 1, 0, 0.65, "shaderRadius", 0, 12);
+							global.waiting = true;
 						}
-						bookSelected = _thisBook;
-						shaderRadiusTween = TweenFire(id, EaseOutSine, 0, 1, 0, 0.65, "shaderRadius", 0, 12);
-						global.waiting = true;
+					}	
+					else
+					{
+						book_scale_down(_thisBook);
 					}
-				}	
-				else
-				{
-					book_scale_down(_thisBook);
 				}
 			
 				var _scaleSelected;
@@ -144,8 +127,8 @@ switch (state)
 				draw_text_wrapped(_title, _tX, _tY, _newSize[X] * _scaleSelected, 1, bookTitleX);
 			}
 			#endregion
-			
-			#region footer interaction
+	
+	#region footer interaction
 			draw_9slice(_footerX, _footerY, _footerW, _footerH + 16, spr_9slice_button, 0, COL[colour.dark]);
 			
 			var _buff, _canGoBack, _canGoNext, _footerTY;
@@ -191,7 +174,7 @@ switch (state)
 			draw_set_valign(fa_top);
 			#endregion
 			
-			if (_isHoveringOnFooter) && (mouse_check_button_pressed(mb_left))
+			if (_stateActive) && (_isHoveringOnFooter) && (mouse_check_button_pressed(mb_left))
 			{
 				if (_footerHoveringBack) && (_canGoBack)
 				{
@@ -208,41 +191,34 @@ switch (state)
 			}
 			
 			#endregion
-			
-			#region scrollbar
-			var _surf, _surfW, _surfH,_barW, _barH, _barX, _barY, _isHoveringOnBar;
-			_surf		= _surfs[state];
-			_surfW	= surface_get_width(_surf);
-			_surfH	= surface_get_height(_surf);
-			_barW	= 18 * scrollbarScale;
-			_barH	= min(48, bookPageHeight - _surfH);
-			_barX		= _surfW - _barW;
-			_barY		= percent_amount(bookListScroll, bookPageHeight,_surfH - _barH, false);
-			
-			_isHoveringOnBar = (mouse_x_gui >= _barX - _barW) && (mouse_y_gui >= VIEW_Y)// && (mouse_y_gui <= _barY + _barH + VIEW_Y));
-			
-			scrollbarScale = Ease(scrollbarScale, ((_isHoveringOnBar) ? 1.5 : 1), 0.4, EaseInOutSine);
-			
-			if (_isHoveringOnBar) && (!global.waiting)
-			{
-				if (mouse_check_button(mb_left))
-				{
-					//var _mx;
-					//_mx = mouse_y_gui - VIEW_Y - _barY;
-					bookListScrollReal = clamp(percent_amount(mouse_y_gui - VIEW_Y, _surfH, bookPageHeight, false), 0,  bookPageHeight);
-				}
-			}
-			
-			draw_9slice(_barX, 0, _barW, _surfH, spr_9slice_scrollbar, 0, COL[colour.dark]);
-			draw_9slice(_barX, _barY, _barW, _barH, spr_9slice_scrollbar, 0,  ((_isHoveringOnBar) ? COL[colour.highlight] : COL[colour.normal]));
-			#endregion
-		}
-	}break;
 	
-	case VIEW_STATE.BOOK_PAGES:
+	#region scrollbar
+	var _surf, _surfW, _surfH,_barW, _barH, _barX, _barY, _isHoveringOnBar;
+	_surf		= surfBookList;
+	_surfW	= surface_get_width(_surf);
+	_surfH	= surface_get_height(_surf);
+	_barW	= 18 * scrollbarScale;
+	_barH	= min(48, bookPageHeight - _surfH);
+	_barX		= _surfW - _barW;
+	_barY		= percent_amount(bookListScroll, bookPageHeight,_surfH - _barH, false);
+	
+	_isHoveringOnBar = (mouse_x_gui >= _barX - _barW) && (mouse_y_gui >= VIEW_Y)// && (mouse_y_gui <= _barY + _barH + VIEW_Y));
+	
+	scrollbarScale = Ease(scrollbarScale, ((_isHoveringOnBar) ? 1.5 : 1), 0.4, EaseInOutSine);
+	
+	if (_isHoveringOnBar) && (!global.waiting)
 	{
-		
-	}break;
+		if (mouse_check_button(mb_left))
+		{
+			//var _mx;
+			//_mx = mouse_y_gui - VIEW_Y - _barY;
+			bookListScrollReal = clamp(percent_amount(mouse_y_gui - VIEW_Y, _surfH, bookPageHeight, false), 0,  bookPageHeight);
+		}
+	}
+	
+	draw_9slice(_barX, 0, _barW, _surfH, spr_9slice_scrollbar, 0, COL[colour.dark]);
+	draw_9slice(_barX, _barY, _barW, _barH, spr_9slice_scrollbar, 0,  ((_isHoveringOnBar) ? COL[colour.highlight] : COL[colour.normal]));
+	#endregion
 }
 
 if (shader_current() != -1)
@@ -250,7 +226,7 @@ if (shader_current() != -1)
 
 surface_reset_target();
 
-draw_surface(_surfs[state], bookListSurfX, VIEW_Y);
+draw_surface(surfBookList, bookListSurfX, VIEW_Y);
 
 if (_switchingPage)
 	btn_search_api(true);

@@ -1,6 +1,7 @@
 ///@desc get pages
 global.waiting = true;
 
+con_books.pagesLoaded = 0;
 con_books.pagesTotal = totalPages;
 for (var i = 0; i < totalPages; ++i)
 {
