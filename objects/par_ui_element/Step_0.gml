@@ -2,6 +2,6 @@ alphaAdjusted = alpha + (enabled / 10);
 
 if (uiOffset)
 {
-	enabled = (con_books.state == VIEW_STATE.BOOK_PAGES);
+	enabled = (con_books.bookListSurfX == -WINDOW[X]);
 	x = (xstart + WINDOW[X] +  con_books.bookListSurfX);
 }

@@ -16,4 +16,7 @@ totalPages = _totalPages;
 pageIndex			= 0;
 pageIndexReal	= 0;
 
+backWidth	= 1;
+backHeight	= 1;
+
 event_user(3);

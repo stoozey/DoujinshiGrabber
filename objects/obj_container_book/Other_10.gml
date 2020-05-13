@@ -1,6 +1,7 @@
 ///@desc get cover
-
 if (getCover != -1) exit;
+
+fileTypes = array_create(totalPages+1, FILE_TRIED.PNG);
 
 var _cleanedTitle;
 _cleanedTitle = string_clean(title);

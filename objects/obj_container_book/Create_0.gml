@@ -24,6 +24,13 @@ dataDownloadTotal			= [];
 getCover	= -1;
 getPages	= [];
 
+enum FILE_TRIED { JPG, JPEG, PNG };
+fileTypes = [];
+
+fileDirs = [];
+
+isSaved = false;
+
 //drawing stuff
 scale				= 1;
 scaleTween	= TweenNull();

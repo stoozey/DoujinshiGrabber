@@ -24,4 +24,4 @@ tweenSize = TweenFire(id, EaseInOutCubic, 0, 1, 0, 0.4,
 	"backWidth", backWidth, _w * scale, "backHeight", backHeight, _h * scale
 );
 TweenAddCallbackUser(tweenSize, TWEEN_EV_FINISH, id, 1);
-tweenAlpha = TweenFire(id, EaseOutSine, 0, 1, 0.4, 0.2, "alpha", 0, 1);
+tweenAlpha = TweenFire(id, EaseInSine, 0, 1, 0.4, 0.1, "alpha", 0, 1);
