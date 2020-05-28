@@ -28,8 +28,6 @@ with (_book)
 	dataDownloadTotal		= array_create(totalPages + 1);
 	getPages = array_create(totalPages, -1);
 	pageUrls = array_create(totalPages);
-	for (var o = 0; o < totalPages; ++o)
-	    pageUrls[o] = book_get_url_page(_postMediaID, o);
 	
 	pages = array_create(totalPages);
 	

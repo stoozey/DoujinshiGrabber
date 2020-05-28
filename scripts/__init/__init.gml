@@ -61,8 +61,19 @@ if ((BASE_W >_dW))|| (BASE_H > _dH)
 	_w	= BASE_W - (BASE_W - _dW - 92);
 	_h	= BASE_H - (BASE_H - _dH - 92);
 	window_set_size(_w, _h);
-	WINDOW = [ window_get_width(), window_get_height() ];
 }
+
+#macro IS_MOBILE false
+#macro mobile:IS_MOBILE true
+if (IS_MOBILE)
+{
+	window_set_size(_dW, _dH);
+	room_set_width(rm_main, _dW);
+	room_set_height(rm_main, _dH);
+	display_set_gui_size(_dW, _dH);
+}
+
+WINDOW = [ window_get_width(), window_get_height() ];
 
 global.downloading	= false;	//	if we are downloading content
 global.waiting				= false;	//	if we are waiting for scontent to be processed
