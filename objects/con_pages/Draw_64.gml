@@ -1,6 +1,5 @@
-if (con_books.state != VIEW_STATE.BOOK_PAGES) exit;
-if (backWidth < 12) exit;
-if (backHeight < 12) exit;
+if (con_books.state != VIEW_STATE.BOOK_PAGES)
+||(backWidth < 12) ||(backHeight < 12) exit;
 
 var _menuIsTweening;
 _menuIsTweening = (con_books.bookListSurfX != -WINDOW[X]);

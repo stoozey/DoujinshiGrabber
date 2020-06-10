@@ -384,14 +384,6 @@
             }
         },
         {
-            "Key": "24445dc5-399f-47ad-9063-8c1c91ca0186",
-            "Value": {
-                "id": "673e665a-1eb6-42d8-8c1c-4058ac01ba09",
-                "resourcePath": "objects\\obj_draw_test\\obj_draw_test.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "24d264de-d06e-4d58-8335-f68ae853cf05",
             "Value": {
                 "id": "ccd76194-cbc3-4d0e-95ac-64af8d2cfdbc",
@@ -1621,14 +1613,6 @@
                 "id": "2b8747cb-cae4-4b9c-916e-20bc432a8071",
                 "resourcePath": "scripts\\__init\\__init.yy",
                 "resourceType": "GMScript"
-            }
-        },
-        {
-            "Key": "85de0188-9543-45ee-9cc7-d997c1837ae7",
-            "Value": {
-                "id": "16122176-2045-4ead-860e-077b5281bb5d",
-                "resourcePath": "objects\\obj_example\\obj_example.yy",
-                "resourceType": "GMObject"
             }
         },
         {
