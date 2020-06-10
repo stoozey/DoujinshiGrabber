@@ -108,11 +108,10 @@ else
 #macro CFG_WINDOW_W		("window_w")
 #macro CFG_WINDOW_H		("window_h")
 #macro CFG_LOW_BANDW		("low_bandwidth_mode")
-////	@2.3 : UNCOMMENT CODE
-////	defaults
-
 #macro DIR_IMAGES_DEFAULT ("books\\")
 
+
+////	@2.3 : UNCOMMENT CODE
 ////	saved stuff
 //try
 //{
