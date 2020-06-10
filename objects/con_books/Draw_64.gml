@@ -129,6 +129,8 @@ if (listHasDeterminedPositions)
 			#endregion
 	
 	#region footer interaction
+		if (!global.waiting)
+		{
 			draw_9slice(_footerX, _footerY, _footerW, _footerH + 16, spr_9slice_button, 0, COL[colour.dark]);
 			
 			var _buff, _canGoBack, _canGoNext, _footerTY;
@@ -186,10 +188,8 @@ if (listHasDeterminedPositions)
 					global.pageNum = min(global.pageNum + 1, global.pageMax);
 					_switchingPage = true;
 				}
-				
-				
 			}
-			
+		}
 			#endregion
 	
 	#region scrollbar
